@@ -249,7 +249,7 @@ This vocabulary is already in RDF and provides IRIs for individual countries.
 
 NUTS {#vocab-NUTS}
 ------------------
-
+ 
 
 NACE {#vocab-NACE}
 ------------------
