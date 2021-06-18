@@ -157,7 +157,7 @@ Note: The exact IRIs are TBD. The vocabulary is not available as RDF at the publ
     ```
 
 Note: The exact IRIs are TBD. The vocabulary is not available as RDF at the publisher and needs to be skosified in-house.
-In addition, there are national extensions, e.g. [CZ-NACE](https://stirdata.opendata.cz/dataset?iri=https%3A%2F%2Fstirdata.opendata.cz%2Fresource%2Fdataset%2Fczechia%2Fnace).
+In addition, there are national extensions, e.g. \[CZ-NACE](https://stirdata.opendata.cz/dataset?iri=https%3A%2F%2Fstirdata.opendata.cz%2Fresource%2Fdataset%2Fczechia%2Fnace).
 An approach to working with NACE and its national extensions is TBD.
 
 Registration Identifier {#Identifier}
@@ -256,7 +256,7 @@ NACE {#vocab-NACE}
 [https://ec.europa.eu/competition/mergers/cases/index/nace_all.html](https://ec.europa.eu/competition/mergers/cases/index/nace_all.html)
 
 ### National NACE extensions
-In addition, there are national extensions, e.g. [CZ-NACE](https://stirdata.opendata.cz/dataset?iri=https%3A%2F%2Fstirdata.opendata.cz%2Fresource%2Fdataset%2Fczechia%2Fnace).
+In addition, there are national extensions, e.g. \[CZ-NACE](https://stirdata.opendata.cz/dataset?iri=https%3A%2F%2Fstirdata.opendata.cz%2Fresource%2Fdataset%2Fczechia%2Fnace).
 An approach to working with NACE and its national extensions is TBD.
 
 ISO 20275: Entity Legal Forms Code List {#GLEIF}
