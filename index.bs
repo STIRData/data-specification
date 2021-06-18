@@ -1,0 +1,313 @@
+<pre class='metadata'>
+Title: STIRData business data model
+Shortname: stirdata-br
+Boilerplate: conformance no, copyright no
+Logo: https://stirdata.eu/assets/images/stirdata-logo.png
+Repository: https://github.com/STIRData/data-specification
+Markup Shorthands: markdown yes
+Level: 1
+Status: LS
+Group: STIRData
+URL: https://stirdata.github.io/data-specification/
+Editor: Jakub Klímek, Charles University https://www.mff.cuni.cz, klimek@ksi.mff.cuni.cz, https://jakub.klímek.com/
+Abstract: This specification describes the data model currently used in the STIRData project. It is based on the euBusinessGraph data model.
+</pre>
+
+Introduction {#intro}
+=====================
+
+[STIRData](https://stirdata.eu) is a CEF Telecom project aiming at helping business registry publishers to publish their data as interoperable linked data.
+Within the project, a proof-of-concept platform will be developed, showcasing what can be done in a decentralized and cetralized fashion when the data is published according to the specification.
+
+Data model
+==========
+The data model is directly based on the [data model](https://docs.google.com/document/d/1dhMOTlIOC6dOK_jksJRX0CB-GIRoiYY6fWtCnZArUhU) developed within the [euBusinessGraph H2020 project](https://www.eubusinessgraph.eu/).
+
+Used prefixes:
+```turtle
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rov: <http://www.w3.org/ns/regorg#> .
+@prefix schema: <http://schema.org> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rov: <http://www.w3.org/ns/regorg#> .
+@prefix stirdata: <https://lod.stirdata.eu/> . #For any additional terms that will be defined.
+```
+
+Company
+-------
+
+: Class IRI
+:: `rov:RegisteredOrganization`
+: Example
+::  
+    ```turtle
+<> a regorg:RegisteredOrganization .
+    ```
+
+
+### Name of the company
+
+: Predicate IRI
+:: `rov:legalName`
+: Data type
+:: `rdf:langString`
+: Example
+:: 
+    ```turtle
+<> a regorg:RegisteredOrganization ;
+   rov:legalName "TechnoPark Management a.s."@cs .
+    ```
+
+### Founding date
+: Predicate IRI
+:: `schema:foundingDate`
+: Data type
+:: `xsd:date`
+: Example
+:: 
+    ```turtle
+<> a regorg:RegisteredOrganization ;
+schema:foundingDate "2014-10-14"^^xsd:date .
+    ```
+
+### Dissolution date
+: Predicate IRI
+:: `schema:dissolutionDate`
+: Data type
+:: `xsd:date`
+: Example
+:: 
+    ```turtle
+<> a regorg:RegisteredOrganization ;
+schema:dissolutionDate "2014-10-14"^^xsd:date .
+    ```
+
+### Site
+: Predicate IRIs
+:: `org:hasRegisteredSite`
+:: `org:hasSite`
+: Data type
+:: [[#Site]]
+: Example
+:: 
+    ```turtle
+<> a regorg:RegisteredOrganization ;
+   org:hasRegisteredSite <#site> ;
+   org:hasSite <#site> .
+
+<#site> a org:Site .
+    ```
+
+### Legal form
+: Predicate IRI
+:: `rov:orgType`
+: Data type
+:: IRI from [[#GLEIF]].
+: Example
+:: 
+    ```turtle
+[] a regorg:RegisteredOrganization ;
+   regorg:orgType <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselník/GLEIF/CZ/6CQN> .
+    ```
+
+Note: The exact IRIs are TBD. The vocabulary is not available as RDF at the publisher and needs to be skosified in-house.
+
+### Identifier
+: Predicate IRIs
+:: `rov:registration`
+: Data type
+:: [[#Identifier]]
+: Example
+:: 
+    ```turtle
+<> a regorg:RegisteredOrganization ;
+   regorg:registration <#registration> .
+
+<#registration> a adms:Identifier .
+    ```
+
+### Jurisdiction
+: Predicate IRI
+:: `dbo:jurisdiction`
+: Data type
+:: IRI from [[#vocab-Country]].
+: Example
+:: 
+    ```turtle
+[] a regorg:RegisteredOrganization ;
+   dbo:jurisdiction <http://publications.europa.eu/resource/authority/country/CZE> .
+    ```
+
+### Economic activity
+: Predicate IRI
+:: `rov:orgActivity`
+: Data type
+:: IRI from [[#vocab-NACE]].
+: Example
+:: 
+    ```turtle
+[] a regorg:RegisteredOrganization ;
+   rov:orgActivity <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/016> .
+    ```
+
+Note: The exact IRIs are TBD. The vocabulary is not available as RDF at the publisher and needs to be skosified in-house.
+In addition, there are national extensions, e.g. [CZ-NACE](https://stirdata.opendata.cz/dataset?iri=https%3A%2F%2Fstirdata.opendata.cz%2Fresource%2Fdataset%2Fczechia%2Fnace).
+An approach to working with NACE and its national extensions is TBD.
+
+Registration Identifier {#Identifier}
+-----------------------
+: Class IRI
+:: `adms:Identifier`
+: Example
+::  
+    ```turtle
+<> a adms:Identifier .
+    ```
+
+### Value
+: Predicate IRIs
+:: `skos:notation`
+: Data type
+:: `xsd:string`
+: Example
+:: 
+    ```turtle
+<> a adms:Identifier ;
+  skos:notation "27463095" .
+    ```
+
+Site {#Site}
+----
+: Class IRI
+:: `org:Site`
+: Example
+:: 
+    ```turtle
+<> a org:Site .
+    ```
+
+### Site address
+: Predicate IRI
+:: `org:siteAddress`
+: Data type
+:: [[#Address]]
+: Example
+:: 
+    ```turtle
+<> a org:Site ;
+  org:siteAddress <#site-address> .
+    ```
+
+Address {#Address}
+-------
+ISA2 Core location vocabulary
+
+: Class IRI
+:: `locn:Address`
+: Example
+:: 
+    ```turtle
+<> a locn:Address ;
+  locn:addressArea "Staré Čívice"@cs;
+  locn:postCode "53006";
+  locn:thoroughfare "U Panasonicu"@cs;
+  locn:locatorDesignator "375";
+  locn:postName "Pardubice"@cs;
+  locn:adminUnitL1 "Česká republika"@cs;
+  locn:adminUnitL2 "Pardubice"@cs;
+    ```
+
+### NUTS3
+: Predicate IRI
+:: `http://data.businessgraph.io/ontology#adminUnitL4`
+: Data type
+:: IRI from [[#vocab-NUTS]].
+: Example
+:: 
+    ```turtle
+<> a locn:Address;
+  <http://data.businessgraph.io/ontology#adminUnitL4> <http://nuts.geovocab.org/id/CZ053> .
+    ```
+
+Note: The exact IRIs are TBD. The vocabulary is available as RDF in various versions and with various IRIs.
+An approach to working with NUTS and its national extensions is TBD.
+
+
+Used Controlled Vocabularies
+============================
+
+Country {#vocab-Country}
+------------------------
+The [Country](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country) Authority Table from the [EU Vocabularies](https://op.europa.eu/en/web/eu-vocabularies).
+This vocabulary is already in RDF and provides IRIs for individual countries.
+
+NUTS {#vocab-NUTS}
+------------------
+
+
+NACE {#vocab-NACE}
+------------------
+[https://ec.europa.eu/competition/mergers/cases/index/nace_all.html](https://ec.europa.eu/competition/mergers/cases/index/nace_all.html)
+
+### National NACE extensions
+In addition, there are national extensions, e.g. [CZ-NACE](https://stirdata.opendata.cz/dataset?iri=https%3A%2F%2Fstirdata.opendata.cz%2Fresource%2Fdataset%2Fczechia%2Fnace).
+An approach to working with NACE and its national extensions is TBD.
+
+ISO 20275: Entity Legal Forms Code List {#GLEIF}
+------------------------------------------------
+[https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list](https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list)
+
+Note: The vocabulary is in the form of a CSV file.
+There was a EBG version, but it seems non-functional after the EBG project finished.
+Approach to using this vocabulary is TDB.
+
+
+Recommended metadata records in data catalogs
+=============================================
+[[DCAT-AP]]
+Example: [https://stirdata.opendata.cz/datasets](https://stirdata.opendata.cz/datasets)
+
+
+Examples
+========
+
+Czech company example
+---------------------
+
+
+```turtle
+<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095>
+  a regorg:RegisteredOrganization;
+  regorg:legalName "TechnoPark Management a.s."@cs;
+  regorg:registration <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace>;
+  org:hasRegisteredSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13> ;
+  org:hasSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13> ;
+  dbo:jurisdiction <http://publications.europa.eu/resource/authority/country/CZE>;
+  regorg:orgType <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselník/GLEIF/CZ/6CQN>;
+  schema:foundingDate "2004-10-13"^^<http://www.w3.org/2001/XMLSchema#date>.
+ 
+<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13>
+  a org:Site;
+  org:siteAddress <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72> .
+ 
+<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace>
+  a adms:Identifier;
+  <http://www.w3.org/2004/02/skos/core#notation> "27463095" .
+ 
+<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72>
+  a locn:Address;
+  locn:addressArea "Staré Čívice"@cs;
+  locn:postCode "53006";
+  locn:thoroughfare "U Panasonicu"@cs;
+  locn:locatorDesignator "375";
+  locn:postName "Pardubice"@cs;
+  locn:adminUnitL1 "Česká republika"@cs;
+  locn:adminUnitL2 "Pardubice"@cs;
+  <http://data.businessgraph.io/ontology#adminUnitL4> <http://nuts.geovocab.org/id/CZ053> .
+```
