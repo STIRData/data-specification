@@ -12,7 +12,7 @@
  *   - .toc for the Table of Contents (<ol class="toc">)
  *     + <span class="secno"> for the section numbers
  *   - #toc for the Table of Contents (<nav id="toc">)
- *   - ul.index for Indices (<a href="#ref">term</a><span>, in §N.M</span>)
+ *   - ul.index for Indices (<a href="#ref">term</a><span>, in § N.M</span>)
  *   - table.index for Index Tables (e.g. for properties or elements)
  *
  * Structural Markup
@@ -1269,7 +1269,7 @@ Possible extra rowspan handling
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
 	@media not print {
-		ul.index li span:not(.dfn-paneled) {
+		ul.index li a + span {
 			white-space: nowrap;
 			color: transparent; }
 		ul.index li a:hover + span,
@@ -1487,9 +1487,8 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 3d6a6fcbb, updated Wed Jun 16 16:19:39 2021 -0700" name="generator">
+  <meta content="Bikeshed version 2e3c4c68b, updated Fri Jan 14 14:49:00 2022 -0800" name="generator">
   <link href="https://stirdata.github.io/data-specification/" rel="canonical">
-  <meta content="0c3645718e4c7dce082e57f7eb6723d22f7a5da2" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1690,6 +1689,16 @@ figcaption {
 figcaption:not(.no-marker)::before {
     content: "Figure " counter(figure) " ";
 }</style>
+<style>/* style-issues */
+
+a[href].issue-return {
+    float: right;
+    float: inline-end;
+    color: var(--issueheading-text);
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1999,7 +2008,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">STIRData business data model</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-06-18">18 June 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-02-03">3 February 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2034,8 +2043,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#site"><span class="secno">2.1.4</span> <span class="content">Site</span></a>
         <li><a href="#legal-form"><span class="secno">2.1.5</span> <span class="content">Legal form</span></a>
         <li><a href="#identifier"><span class="secno">2.1.6</span> <span class="content">Identifier</span></a>
-        <li><a href="#jurisdiction"><span class="secno">2.1.7</span> <span class="content">Jurisdiction</span></a>
-        <li><a href="#economic-activity"><span class="secno">2.1.8</span> <span class="content">Economic activity</span></a>
+        <li><a href="#economic-activity"><span class="secno">2.1.7</span> <span class="content">Economic activity</span></a>
        </ol>
       <li>
        <a href="#Identifier"><span class="secno">2.2</span> <span class="content">Registration Identifier</span></a>
@@ -2200,21 +2208,7 @@ Within the project, a proof-of-concept platform will be developed, showcasing wh
 <c- g>&lt;#registration></c-> <c- b>a</c-> <c- nn>adms</c-><c- p>:</c-><c- f>Identifier</c-> <c- p>.</c->
 </pre>
    </dl>
-   <h4 class="heading settled" data-level="2.1.7" id="jurisdiction"><span class="secno">2.1.7. </span><span class="content">Jurisdiction</span><a class="self-link" href="#jurisdiction"></a></h4>
-   <dl>
-    <dt data-md>Predicate IRI
-    <dd data-md>
-     <p><code>dbo:jurisdiction</code></p>
-    <dt data-md>Data type
-    <dd data-md>
-     <p>IRI from <a href="#vocab-Country">§ 3.1 Country</a>.</p>
-    <dt data-md>Example
-    <dd data-md>
-<pre class="language-turtle highlight"><c- p>[]</c-> <c- b>a</c-> <c- nn>regorg</c-><c- p>:</c-><c- f>RegisteredOrganization</c-> <c- p>;</c->
-   <c- nn>dbo</c-><c- p>:</c-><c- f>jurisdiction</c-> <c- g>&lt;http://publications.europa.eu/resource/authority/country/CZE></c-> <c- p>.</c->
-</pre>
-   </dl>
-   <h4 class="heading settled" data-level="2.1.8" id="economic-activity"><span class="secno">2.1.8. </span><span class="content">Economic activity</span><a class="self-link" href="#economic-activity"></a></h4>
+   <h4 class="heading settled" data-level="2.1.7" id="economic-activity"><span class="secno">2.1.7. </span><span class="content">Economic activity</span><a class="self-link" href="#economic-activity"></a></h4>
    <dl>
     <dt data-md>Predicate IRI
     <dd data-md>
@@ -2338,7 +2332,6 @@ Approach to using this vocabulary is TDB.</p>
   <c- nn>regorg</c-><c- p>:</c-><c- f>registration</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace></c-><c- p>;</c->
   <c- nn>org</c-><c- p>:</c-><c- f>hasRegisteredSite</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13></c-> <c- p>;</c->
   <c- nn>org</c-><c- p>:</c-><c- f>hasSite</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13></c-> <c- p>;</c->
-  <c- nn>dbo</c-><c- p>:</c-><c- f>jurisdiction</c-> <c- g>&lt;http://publications.europa.eu/resource/authority/country/CZE></c-><c- p>;</c->
   <c- nn>regorg</c-><c- p>:</c-><c- f>orgType</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselník/GLEIF/CZ/6CQN></c-><c- p>;</c->
   <c- nn>schema</c-><c- p>:</c-><c- f>foundingDate</c-> <c- s>"2004-10-13"</c-><c- o>^^</c->&lt;http://www.w3.org/2001/XMLSchema#date><c- p>.</c->
  
@@ -2495,5 +2488,5 @@ Approach to using this vocabulary is TDB.</p>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-dcat-ap">[DCAT-AP]
-   <dd><a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe">DCAT Application Profile for data portals in Europe. Version 2.0.1</a>. 8 June 2020. URL: <a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe">https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe</a>
+   <dd><a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe"><cite>DCAT Application Profile for data portals in Europe. Version 2.0.1</cite></a>. 8 June 2020. URL: <a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe">https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe</a>
   </dl>

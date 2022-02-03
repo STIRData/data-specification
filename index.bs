@@ -132,18 +132,6 @@ Note: The exact IRIs are TBD. The vocabulary is not available as RDF at the publ
 <#registration> a adms:Identifier .
     ```
 
-### Jurisdiction
-: Predicate IRI
-:: `dbo:jurisdiction`
-: Data type
-:: IRI from [[#vocab-Country]].
-: Example
-:: 
-    ```turtle
-[] a regorg:RegisteredOrganization ;
-   dbo:jurisdiction <http://publications.europa.eu/resource/authority/country/CZE> .
-    ```
-
 ### Economic activity
 : Predicate IRI
 :: `rov:orgActivity`
@@ -288,7 +276,6 @@ Czech company example
   regorg:registration <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace>;
   org:hasRegisteredSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13> ;
   org:hasSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13> ;
-  dbo:jurisdiction <http://publications.europa.eu/resource/authority/country/CZE>;
   regorg:orgType <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselník/GLEIF/CZ/6CQN>;
   schema:foundingDate "2004-10-13"^^<http://www.w3.org/2001/XMLSchema#date>.
  
