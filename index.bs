@@ -258,8 +258,74 @@ Approach to using this vocabulary is TDB.
 
 Recommended metadata records in data catalogs
 =============================================
-[[DCAT-AP]]
-Example: [https://stirdata.opendata.cz/datasets](https://stirdata.opendata.cz/datasets)
+Here we state an example of a [[DCAT-AP]] compliant metadata record for the Czech business register dataset compliant with this STIRData specification.
+
+```turtle
+@prefix application: <http://www.iana.org/assignments/media-types/application/> .
+@prefix dcat:        <http://www.w3.org/ns/dcat#> .
+@prefix dcterms:     <http://purl.org/dc/terms/> .
+@prefix file:        <http://publications.europa.eu/resource/authority/file-type/> .
+@prefix frequency:   <http://publications.europa.eu/resource/authority/frequency/> .
+@prefix sparql:      <https://www.w3.org/TR/sparql11-protocol/> .
+@prefix vcard:       <http://www.w3.org/2006/vcard/ns#> .
+ 
+<https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata>
+        a                           dcat:Dataset ;
+        dcterms:accrualPeriodicity  frequency:IRREG ;
+        dcterms:conformsTo          <https://stirdata.github.io/data-specification/> ;
+        dcterms:description         "Business registry of Czechia represented according to the data model developed in CEF Telecom project STIRData. The dataset is under development, the project ends in September 2023."@en , "Obchodní rejstřík České republiky reprezentovaný dle datového modelu vyvíjeného v rámci projektu CEF Telecom STIRData. Tato datová sada je stále ve vývoji, projekt končí v září 2023."@cs ;
+        dcterms:publisher           <https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00216208> ;
+        dcterms:spatial             <https://linked.cuzk.cz/resource/ruian/stat/1> , <http://publications.europa.eu/resource/authority/country/CZE> ;
+        dcterms:title               "Obchodní rejstřík dle datového modelu STIRData"@cs , "Business register according to the STIRData data model"@en ;
+        dcat:contactPoint           [ a               vcard:Organization ;
+                                      vcard:fn        "Jakub Klímek"@cs ;
+                                      vcard:hasEmail  <mailto:jakub.klimek@matfyz.cuni.cz>
+                                    ] ;
+        dcat:distribution           <https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/trig> , <https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/sparql> ;
+        dcat:keyword                "Česko"@cs , "Czechia"@en , "STIRData"@en , "STIRData"@cs , "obchodní rejstřík"@cs , "firmy"@cs , "companies"@en , "business register"@en ;
+        dcat:theme                  <http://publications.europa.eu/resource/authority/data-theme/ECON> , <http://eurovoc.europa.eu/1307> , <http://eurovoc.europa.eu/813> , <http://publications.europa.eu/resource/authority/data-theme/GOVE> , <http://eurovoc.europa.eu/4703> , <http://eurovoc.europa.eu/100152> .
+ 
+<https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/sparql>
+        a                   dcat:Distribution ;
+        dcterms:title       "SPARQL endpoint"@en , "SPARQL endpoint"@cs ;
+        dcat:accessService  <https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/sparql/přístupové-služby/sparql> ;
+        dcat:accessURL      <https://obchodní-rejstřík.stirdata.opendata.cz/sparql> .
+ 
+<https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/sparql/přístupové-služby/sparql>
+        a                         dcat:DataService ;
+        dcterms:conformsTo        sparql: ;
+        dcterms:title             "SPARQL endpoint"@en , "SPARQL endpoint"@cs ;
+        dcat:endpointDescription  <https://obchodní-rejstřík.stirdata.opendata.cz/sparql> ;
+        dcat:endpointURL          <https://obchodní-rejstřík.stirdata.opendata.cz/sparql> ;
+        dcat:servesDataset        <https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata> .
+ 
+<https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/trig>
+        a                 dcat:Distribution ;
+        dcterms:format    file:RDF_TRIG ;
+        dcat:accessURL    <https://obchodní-rejstřík.stirdata.opendata.cz/soubor/or-ebg.trig> ;
+        dcat:downloadURL  <https://obchodní-rejstřík.stirdata.opendata.cz/soubor/or-ebg.trig> ;
+        dcat:mediaType    application:trig  .
+```
+The key is to provide the `dcterms:conformsTo <https://stirdata.github.io/data-specification/> ` link on the dataset, and to have a distribution of that dataset representing a SPARQL Endpoint data service, indicated by `dcterms:conformsTo <https://www.w3.org/TR/sparql11-protocol/>` on the `dcat:DataService`.
+
+The SPARQL [[sparql11-query]] query used to find the compliant datasets in the [SPARQL endpoint](https://data.europa.eu/sparql) of the Official portal for European data is:
+```sparql
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?title ?endpoint WHERE {
+  ?dataset a dcat:Dataset ;
+    dcterms:title ?title ;
+    dcterms:conformsTo <https://stirdata.github.io/data-specification/> ;
+    dcat:distribution/dcat:accessService ?service .
+  ?service a dcat:DataService ;
+    dcterms:conformsTo <https://www.w3.org/TR/sparql11-protocol/> ;
+    dcat:endpointURL ?endpoint .
+  FILTER(langMatches(LANG(?title), "en"))
+}
+```
 
 
 Examples

@@ -1487,7 +1487,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 2e3c4c68b, updated Fri Jan 14 14:49:00 2022 -0800" name="generator">
+  <meta content="Bikeshed version fb1e763a4, updated Tue Mar 1 13:13:50 2022 -0800" name="generator">
   <link href="https://stirdata.github.io/data-specification/" rel="canonical">
 <style>/* style-autolinks */
 
@@ -2008,7 +2008,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">STIRData business data model</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-02-03">3 February 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-03-16">16 March 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2323,7 +2323,70 @@ An approach to working with NACE and its national extensions is TBD.
 There was a EBG version, but it seems non-functional after the EBG project finished.
 Approach to using this vocabulary is TDB.</p>
    <h2 class="heading settled" data-level="4" id="recommended-metadata-records-in-data-catalogs"><span class="secno">4. </span><span class="content">Recommended metadata records in data catalogs</span><a class="self-link" href="#recommended-metadata-records-in-data-catalogs"></a></h2>
-    <a data-link-type="biblio" href="#biblio-dcat-ap">[DCAT-AP]</a> Example: <a href="https://stirdata.opendata.cz/datasets">https://stirdata.opendata.cz/datasets</a> 
+    Here we state an example of a <a data-link-type="biblio" href="#biblio-dcat-ap">[DCAT-AP]</a> compliant metadata record for the Czech business register dataset compliant with this STIRData specification. 
+<pre class="language-turtle highlight"><c- k>@prefix</c-> <c- nn>application:</c-> <c- g>&lt;http://www.iana.org/assignments/media-types/application/></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>dcat:</c->        <c- g>&lt;http://www.w3.org/ns/dcat#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>dcterms:</c->     <c- g>&lt;http://purl.org/dc/terms/></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>file:</c->        <c- g>&lt;http://publications.europa.eu/resource/authority/file-type/></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>frequency:</c->   <c- g>&lt;http://publications.europa.eu/resource/authority/frequency/></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>sparql:</c->      <c- g>&lt;https://www.w3.org/TR/sparql11-protocol/></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>vcard:</c->       <c- g>&lt;http://www.w3.org/2006/vcard/ns#></c-> <c- p>.</c->
+ 
+<c- g>&lt;https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata></c->
+        <c- b>a</c->                           <c- nn>dcat</c-><c- p>:</c-><c- f>Dataset</c-> <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>accrualPeriodicity</c->  <c- nn>frequency</c-><c- p>:</c-><c- f>IRREG</c-> <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>conformsTo</c->          <c- g>&lt;https://stirdata.github.io/data-specification/></c-> <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>description</c->         <c- s>"Business registry of Czechia represented according to the data model developed in CEF Telecom project STIRData. The dataset is under development, the project ends in September 2023."</c-><c- o>@</c->en <c- p>,</c-> <c- s>"Obchodní rejstřík České republiky reprezentovaný dle datového modelu vyvíjeného v rámci projektu CEF Telecom STIRData. Tato datová sada je stále ve vývoji, projekt končí v září 2023."</c-><c- o>@</c->cs <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>publisher</c->           <c- g>&lt;https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00216208></c-> <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>spatial</c->             <c- g>&lt;https://linked.cuzk.cz/resource/ruian/stat/1></c-> <c- p>,</c-> <c- g>&lt;http://publications.europa.eu/resource/authority/country/CZE></c-> <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>title</c->               <c- s>"Obchodní rejstřík dle datového modelu STIRData"</c-><c- o>@</c->cs <c- p>,</c-> <c- s>"Business register according to the STIRData data model"</c-><c- o>@</c->en <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>contactPoint</c->           <c- p>[</c-> <c- b>a</c->               <c- nn>vcard</c-><c- p>:</c-><c- f>Organization</c-> <c- p>;</c->
+                                      <c- nn>vcard</c-><c- p>:</c-><c- f>fn</c->        <c- s>"Jakub Klímek"</c-><c- o>@</c->cs <c- p>;</c->
+                                      <c- nn>vcard</c-><c- p>:</c-><c- f>hasEmail</c->  <c- g>&lt;mailto:jakub.klimek@matfyz.cuni.cz></c->
+                                    <c- p>]</c-> <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>distribution</c->           <c- g>&lt;https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/trig></c-> <c- p>,</c-> <c- g>&lt;https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/sparql></c-> <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>keyword</c->                <c- s>"Česko"</c-><c- o>@</c->cs <c- p>,</c-> <c- s>"Czechia"</c-><c- o>@</c->en <c- p>,</c-> <c- s>"STIRData"</c-><c- o>@</c->en <c- p>,</c-> <c- s>"STIRData"</c-><c- o>@</c->cs <c- p>,</c-> <c- s>"obchodní rejstřík"</c-><c- o>@</c->cs <c- p>,</c-> <c- s>"firmy"</c-><c- o>@</c->cs <c- p>,</c-> <c- s>"companies"</c-><c- o>@</c->en <c- p>,</c-> <c- s>"business register"</c-><c- o>@</c->en <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>theme</c->                  <c- g>&lt;http://publications.europa.eu/resource/authority/data-theme/ECON></c-> <c- p>,</c-> <c- g>&lt;http://eurovoc.europa.eu/1307></c-> <c- p>,</c-> <c- g>&lt;http://eurovoc.europa.eu/813></c-> <c- p>,</c-> <c- g>&lt;http://publications.europa.eu/resource/authority/data-theme/GOVE></c-> <c- p>,</c-> <c- g>&lt;http://eurovoc.europa.eu/4703></c-> <c- p>,</c-> <c- g>&lt;http://eurovoc.europa.eu/100152></c-> <c- p>.</c->
+ 
+<c- g>&lt;https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/sparql></c->
+        <c- b>a</c->                   <c- nn>dcat</c-><c- p>:</c-><c- f>Distribution</c-> <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>title</c->       <c- s>"SPARQL endpoint"</c-><c- o>@</c->en <c- p>,</c-> <c- s>"SPARQL endpoint"</c-><c- o>@</c->cs <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>accessService</c->  <c- g>&lt;https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/sparql/přístupové-služby/sparql></c-> <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>accessURL</c->      <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/sparql></c-> <c- p>.</c->
+ 
+<c- g>&lt;https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/sparql/přístupové-služby/sparql></c->
+        <c- b>a</c->                         <c- nn>dcat</c-><c- p>:</c-><c- f>DataService</c-> <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>conformsTo</c->        <c- nn>sparql</c-><c- p>:</c-> <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>title</c->             <c- s>"SPARQL endpoint"</c-><c- o>@</c->en <c- p>,</c-> <c- s>"SPARQL endpoint"</c-><c- o>@</c->cs <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>endpointDescription</c->  <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/sparql></c-> <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>endpointURL</c->          <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/sparql></c-> <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>servesDataset</c->        <c- g>&lt;https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata></c-> <c- p>.</c->
+ 
+<c- g>&lt;https://lkod.mff.cuni.cz/zdroj/datové-sady/STIRData/obchodní-rejstřík-stirdata/distribuce/trig></c->
+        <c- b>a</c->                 <c- nn>dcat</c-><c- p>:</c-><c- f>Distribution</c-> <c- p>;</c->
+        <c- nn>dcterms</c-><c- p>:</c-><c- f>format</c->    <c- nn>file</c-><c- p>:</c-><c- f>RDF_TRIG</c-> <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>accessURL</c->    <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/soubor/or-ebg.trig></c-> <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>downloadURL</c->  <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/soubor/or-ebg.trig></c-> <c- p>;</c->
+        <c- nn>dcat</c-><c- p>:</c-><c- f>mediaType</c->    <c- nn>application</c-><c- p>:</c-><c- f>trig</c->  <c- p>.</c->
+</pre>
+   The key is to provide the <code>dcterms:conformsTo &lt;https://stirdata.github.io/data-specification/></code> link on the dataset, and to have a distribution of that dataset representing a SPARQL Endpoint data service, indicated by <code>dcterms:conformsTo &lt;https://www.w3.org/TR/sparql11-protocol/></code> on the <code>dcat:DataService</code>. 
+   <p>The SPARQL <a data-link-type="biblio" href="#biblio-sparql11-query">[sparql11-query]</a> query used to find the compliant datasets in the <a href="https://data.europa.eu/sparql">SPARQL endpoint</a> of the Official portal for European data is:</p>
+<pre class="language-sparql highlight"><c- k>PREFIX</c-> <c- nn>dcterms</c-><c- p>:</c-> <c- nl>&lt;http://purl.org/dc/terms/></c->
+<c- k>PREFIX</c-> <c- nn>dcat</c-><c- p>:</c-> <c- nl>&lt;http://www.w3.org/ns/dcat#></c->
+<c- k>PREFIX</c-> <c- nn>rdf</c-><c- p>:</c-> <c- nl>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c->
+<c- k>PREFIX</c-> <c- nn>rdfs</c-><c- p>:</c-> <c- nl>&lt;http://www.w3.org/2000/01/rdf-schema#></c->
+
+<c- k>SELECT</c-> <c- g>?title</c-> <c- g>?endpoint</c-> <c- k>WHERE</c-> <c- p>{</c->
+  <c- g>?dataset</c-> <c- k>a</c-> <c- nn>dcat</c-><c- p>:</c-><c- f>Dataset</c-> <c- p>;</c->
+    <c- nn>dcterms</c-><c- p>:</c-><c- f>title</c-> <c- g>?title</c-> <c- p>;</c->
+    <c- nn>dcterms</c-><c- p>:</c-><c- f>conformsTo</c-> <c- nl>&lt;https://stirdata.github.io/data-specification/></c-> <c- p>;</c->
+    <c- nn>dcat</c-><c- p>:</c-><c- f>distribution</c-><c- o>/</c-><c- nn>dcat</c-><c- p>:</c-><c- f>accessService</c-> <c- g>?service</c-> <c- p>.</c->
+  <c- g>?service</c-> <c- k>a</c-> <c- nn>dcat</c-><c- p>:</c-><c- f>DataService</c-> <c- p>;</c->
+    <c- nn>dcterms</c-><c- p>:</c-><c- f>conformsTo</c-> <c- nl>&lt;https://www.w3.org/TR/sparql11-protocol/></c-> <c- p>;</c->
+    <c- nn>dcat</c-><c- p>:</c-><c- f>endpointURL</c-> <c- g>?endpoint</c-> <c- p>.</c->
+  <c- k>FILTER</c-><c- p>(</c-><c- nf>langMatches</c-><c- p>(</c-><c- nf>LANG</c-><c- p>(</c-><c- g>?title</c-><c- p>),</c-> <c- s>"en"</c-><c- p>))</c->
+<c- p>}</c->
+</pre>
    <h2 class="heading settled" data-level="5" id="examples"><span class="secno">5. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h2>
    <h3 class="heading settled" data-level="5.1" id="czech-company-example"><span class="secno">5.1. </span><span class="content">Czech company example</span><a class="self-link" href="#czech-company-example"></a></h3>
 <pre class="language-turtle highlight"><c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095></c->
@@ -2489,4 +2552,6 @@ Approach to using this vocabulary is TDB.</p>
   <dl>
    <dt id="biblio-dcat-ap">[DCAT-AP]
    <dd><a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe"><cite>DCAT Application Profile for data portals in Europe. Version 2.0.1</cite></a>. 8 June 2020. URL: <a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe">https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe</a>
+   <dt id="biblio-sparql11-query">[SPARQL11-QUERY]
+   <dd>Steven Harris; Andy Seaborne. <a href="https://www.w3.org/TR/sparql11-query/"><cite>SPARQL 1.1 Query Language</cite></a>. 21 March 2013. REC. URL: <a href="https://www.w3.org/TR/sparql11-query/">https://www.w3.org/TR/sparql11-query/</a>
   </dl>
