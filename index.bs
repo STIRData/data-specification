@@ -9,7 +9,7 @@ Level: 1
 Status: LS
 Group: STIRData
 URL: https://stirdata.github.io/data-specification/
-Editor: Jakub Klímek, Charles University https://www.mff.cuni.cz, klimek@ksi.mff.cuni.cz, https://jakub.klímek.com/
+Editor: Jakub Klímek, Charles University https://www.mff.cuni.cz, jakub.klimek@matfyz.cuni.cz, https://jakub.klímek.com/
 Abstract: This specification describes the data model currently used in the STIRData project. It is based on the euBusinessGraph data model.
 </pre>
 
@@ -36,7 +36,7 @@ Used prefixes:
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rov: <http://www.w3.org/ns/regorg#> .
-@prefix stirdata: <https://lod.stirdata.eu/> . #For any additional terms that will be defined.
+@prefix stirdata: <https://w3id.org/stirdata/vocabulary/> .
 ```
 
 Company
