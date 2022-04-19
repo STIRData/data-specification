@@ -1,0 +1,2 @@
+@prefix stirdata: <https://w3id.org/stirdata/> .
+
