@@ -2025,7 +2025,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This specification describes the data model currently used in the STIRData project. It is based on the euBusinessGraph data model.</p>
+   <p>This specification describes the data model currently used in the STIRData project. It is based on the EU Core Vocabularies.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -2101,10 +2101,11 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#vocab-LAU"><span class="secno">3.6</span> <span class="content">LAUs - Local Administrative Units</span></a>
      </ol>
     <li><a href="#recommended-metadata-records-in-data-catalogs"><span class="secno">4</span> <span class="content">Recommended metadata records in data catalogs</span></a>
+    <li><a href="#data-freshness-indication"><span class="secno">5</span> <span class="content">Data freshness indication</span></a>
     <li>
-     <a href="#examples"><span class="secno">5</span> <span class="content">Examples</span></a>
+     <a href="#examples"><span class="secno">6</span> <span class="content">Examples</span></a>
      <ol class="toc">
-      <li><a href="#czech-company-example"><span class="secno">5.1</span> <span class="content">Czech company example</span></a>
+      <li><a href="#czech-company-example"><span class="secno">6.1</span> <span class="content">Czech company example</span></a>
      </ol>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
@@ -2893,8 +2894,15 @@ Is used in <a href="#AdministrativeUnit">§ 2.6 Administrative Unit</a>.
   <c- k>FILTER</c-><c- p>(</c-><c- nf>langMatches</c-><c- p>(</c-><c- nf>LANG</c-><c- p>(</c-><c- g>?title</c-><c- p>),</c-> <c- s>"en"</c-><c- p>))</c->
 <c- p>}</c->
 </pre>
-   <h2 class="heading settled" data-level="5" id="examples"><span class="secno">5. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h2>
-   <h3 class="heading settled" data-level="5.1" id="czech-company-example"><span class="secno">5.1. </span><span class="content">Czech company example</span><a class="self-link" href="#czech-company-example"></a></h3>
+   <h2 class="heading settled" data-level="5" id="data-freshness-indication"><span class="secno">5. </span><span class="content">Data freshness indication</span><a class="self-link" href="#data-freshness-indication"></a></h2>
+    The data from a business registry compliant with this specification should also contain a dataset-wide information about when the last update of the data occured.
+For some use cases of such data, it is crucial to know how fresh they are. 
+   <p>Therefore, an RDF statement with <code>stirdata:lastUpdate</code> predicate should be present in each compliant dataset.
+For example:</p>
+<pre class="language-turtle highlight"><c- p>[]</c-> <c- nn>stirdata</c-><c- p>:</c-><c- f>lastUpdate</c-> <c- s>"2022-05-20T08:00:21+02:00"</c-><c- p>^^</c-><c- nn>xsd</c-><c- p>:</c-><c- f>dateTimeStamp</c-> <c- p>.</c->
+</pre>
+   <h2 class="heading settled" data-level="6" id="examples"><span class="secno">6. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h2>
+   <h3 class="heading settled" data-level="6.1" id="czech-company-example"><span class="secno">6.1. </span><span class="content">Czech company example</span><a class="self-link" href="#czech-company-example"></a></h3>
 <pre class="language-turtle highlight"><c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095></c->
     <c- b>a</c-> <c- nn>legal</c-><c- p>:</c-><c- f>LegalEntity</c-><c- p>;</c->
     <c- nn>legal</c-><c- p>:</c-><c- f>legalName</c-> <c- s>"TechnoPark Management a.s. v likvidaci"</c-><c- o>@</c->cs<c- p>;</c->

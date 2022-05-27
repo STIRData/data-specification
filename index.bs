@@ -11,7 +11,7 @@ Group: STIRData
 URL: https://stirdata.github.io/data-specification/
 Editor: Jakub Klímek, Charles University https://www.mff.cuni.cz, jakub.klimek@matfyz.cuni.cz, https://jakub.klímek.com/
 Editor: Alexandros Chortaras, National Technical University of Athens https://www.ntua.gr/, achort@cs.ntua.gr, https://www.ece.ntua.gr/en/staff/217
-Abstract: This specification describes the data model currently used in the STIRData project. It is based on the euBusinessGraph data model.
+Abstract: This specification describes the data model currently used in the STIRData project. It is based on the EU Core Vocabularies.
 </pre>
 
 Introduction {#intro}
@@ -770,6 +770,17 @@ SELECT ?title ?endpoint WHERE {
     dcat:endpointURL ?endpoint .
   FILTER(langMatches(LANG(?title), "en"))
 }
+```
+
+Data freshness indication
+=========================
+The data from a business registry compliant with this specification should also contain a dataset-wide information about when the last update of the data occured.
+For some use cases of such data, it is crucial to know how fresh they are.
+
+Therefore, an RDF statement with `stirdata:lastUpdate` predicate should be present in each compliant dataset.
+For example:
+```turtle
+[] stirdata:lastUpdate "2022-05-20T08:00:21+02:00"^^xsd:dateTimeStamp .
 ```
 
 Examples
