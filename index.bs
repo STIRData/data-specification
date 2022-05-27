@@ -620,7 +620,7 @@ Country {#vocab-Country}
 The [Country](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country) Authority Table from the [EU Vocabularies](https://op.europa.eu/en/web/eu-vocabularies).
 Is used in [[#AdministrativeUnit]].
 
-Company Type {#CompanyType}
+Company type {#CompanyType}
 ---------------------------
 
 The Company type is currently used to distinguish mainly sole traders from other types of companies.
@@ -772,40 +772,62 @@ SELECT ?title ?endpoint WHERE {
 }
 ```
 
-
 Examples
 ========
 
 Czech company example
 ---------------------
 
-
 ```turtle
 <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095>
-  a legal:LegalEntity;
-  regorg:legalName "TechnoPark Management a.s."@cs;
-  regorg:registration <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace>;
-  org:hasRegisteredSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13> ;
-  org:hasSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13> ;
-  regorg:orgType <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselník/GLEIF/CZ/6CQN>;
-  schema:foundingDate "2004-10-13"^^<http://www.w3.org/2001/XMLSchema#date>.
- 
-<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13>
-  a org:Site;
-  org:siteAddress <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72> .
- 
-<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace>
-  a adms:Identifier;
-  <http://www.w3.org/2004/02/skos/core#notation> "27463095" .
- 
-<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72>
-  a locn:Address;
-  locn:addressArea "Staré Čívice"@cs;
-  locn:postCode "53006";
-  locn:thoroughfare "U Panasonicu"@cs;
-  locn:locatorDesignator "375";
-  locn:postName "Pardubice"@cs;
-  locn:adminUnitL1 "Česká republika"@cs;
-  locn:adminUnitL2 "Pardubice"@cs;
-  <http://data.businessgraph.io/ontology#adminUnitL4> <http://nuts.geovocab.org/id/CZ053> .
+    a legal:LegalEntity;
+    legal:legalName "TechnoPark Management a.s. v likvidaci"@cs;
+    legal:legalIdentifier <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace>;
+    schema:foundingDate "2004-10-13"^^xsd:date;
+    org:hasSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13>;
+    org:hasRegisteredSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13>;
+    legal:registeredAddress <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72> ;
+    legal:companyActivity <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/00>,
+      <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/27900> .
+  
+  <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace>
+    a adms:Identifier;
+    skos:notation "27463095" .
+  
+  <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13>
+    a org:Site;
+    org:siteAddress <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72> .
+  
+  <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72>
+    a locn:Address;
+    locn:addressArea "Staré Čívice"@cs;
+    locn:postCode "53006";
+    locn:thoroughfare "U Panasonicu"@cs;
+    locn:locatorDesignator "375";
+    locn:postName "Pardubice"@cs;
+    locn:adminUnitL1 "Česká republika"@cs;
+    locn:adminUnitL2 "Pardubice"@cs;
+    m8g:adminUnit <http://publications.europa.eu/resource/authority/country/CZE>, 
+        <https://w3id.org/stirdata/resource/nuts/item/CZ053>, 
+        <https://w3id.org/stirdata/resource/lau/item/CZ_555134> .
+
+<http://publications.europa.eu/resource/authority/country/CZE> a m8g:AdminUnit;
+    m8g:code <http://publications.europa.eu/resource/authority/country/CZE>;
+    m8g:level <https://w3id.org/stirdata/resource/adminLevel/Country> .
+
+<https://w3id.org/stirdata/resource/nuts/item/CZ053> a m8g:AdminUnit;
+    m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> ;
+    m8g:code <https://w3id.org/stirdata/resource/nuts/item/CZ053> .
+
+<https://w3id.org/stirdata/resource/lau/item/CZ_555134> a m8g:AdminUnit;
+    m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/LAU> ;
+    m8g:code <https://w3id.org/stirdata/resource/lau/item/CZ_555134> .
+
+<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/27900>
+    a skos:Concept, stirdata:BusinessActivity;
+    skos:prefLabel "Výroba ostatních elektrických zařízení"@cs;
+    skos:notation "27900";
+    skos:inScheme <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz>;
+    stirdata:level 5;
+    skos:broader <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/2790> .
 ```
