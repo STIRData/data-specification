@@ -28,130 +28,366 @@ Used prefixes:
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix rov: <http://www.w3.org/ns/regorg#> .
-@prefix schema: <http://schema.org> .
+@prefix schema: <https://schema.org> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix org: <http://www.w3.org/ns/org#> .
 @prefix rov: <http://www.w3.org/ns/regorg#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix m8g: <http://data.europa.eu/m8g/> .
 @prefix stirdata: <https://w3id.org/stirdata/vocabulary/> .
 ```
 
-Company
--------
+Company {#Company}
+------------------
 
 : Class IRI
-:: `rov:RegisteredOrganization`
+:: `legal:LegalEntity`
+: Presence
+:: Mandatory
+: Description
+:: According to the [definition in Core Business Vocabulary 2.00](https://semiceu.github.io/Core-Business-Vocabulary/releases/2.00/#Legal%20Entity), a self-empoyed person, company, or organization that has legal rights and obligations.
 : Example
 ::  
     ```turtle
-<> a regorg:RegisteredOrganization .
+<> a legal:LegalEntity .
     ```
-
 
 ### Name of the company
 
 : Predicate IRI
-:: `rov:legalName`
+:: `legal:legalName`
+: Presence
+:: Mandatory
 : Data type
 :: `rdf:langString`
 : Example
 :: 
     ```turtle
-<> a regorg:RegisteredOrganization ;
-   rov:legalName "TechnoPark Management a.s."@cs .
+<> a legal:LegalEntity ;
+   legal:legalName "TechnoPark Management a.s."@cs .
+    ```
+
+### Abbreviated name of the company
+
+: Predicate IRI
+:: `stirdata:abbreviatedName`
+: Presence
+:: Optional
+: Data type
+:: `rdf:langString`
+: Example
+:: 
+    ```turtle
+<> a legal:LegalEntity ;
+   stirdata:abbreviatedName "TPM"@cs .
+    ```
+
+### Trading name of the company
+
+: Predicate IRI
+:: `stirdata:tradingName`
+: Presence
+:: Optional
+: Data type
+:: `rdf:langString`
+: Example
+:: 
+    ```turtle
+<> a legal:LegalEntity ;
+   stirdata:tradingName "TPM"@cs .
+    ```
+
+### Identifier
+
+: Predicate IRIs
+:: `legal:legalIdentifier`
+: Presence
+:: Mandatory
+: Data type
+:: [[#Identifier]]
+: Example
+:: 
+    ```turtle
+<> a legal:LegalEntity ;
+   legal:legalIdentifier <#identifier> .
+
+<#identifier> a adms:Identifier .
+    ```
+
+### Tax identifier
+
+: Predicate IRIs
+:: `stirdata:taxIdentifier`
+: Presence
+:: Optional
+: Data type
+:: [[#Identifier]]
+: Example
+:: 
+    ```turtle
+<> a legal:LegalEntity ;
+   stirdata:taxIdentifier <#identifier> .
+
+<#identifier> a adms:Identifier .
+    ```
+
+### LEI code
+
+: Predicate IRIs
+:: `stirdata:leiCode`
+: Presence
+:: Optional
+: Data type
+:: String
+: Example
+:: 
+    ```turtle
+<> a legal:LegalEntity ;
+   stirdata:leiCode "5493000IBP32UQZ0KL24" .
     ```
 
 ### Founding date
+
 : Predicate IRI
 :: `schema:foundingDate`
+: Presence
+:: Optional
 : Data type
 :: `xsd:date`
 : Example
 :: 
     ```turtle
-<> a regorg:RegisteredOrganization ;
+<> a legal:LegalEntity ;
 schema:foundingDate "2014-10-14"^^xsd:date .
     ```
 
 ### Dissolution date
+
 : Predicate IRI
 :: `schema:dissolutionDate`
+: Presence
+:: Optional
 : Data type
 :: `xsd:date`
 : Example
 :: 
     ```turtle
-<> a regorg:RegisteredOrganization ;
+<> a legal:LegalEntity ;
 schema:dissolutionDate "2014-10-14"^^xsd:date .
     ```
 
+### Legal entity activity
+
+In case of differentiation between primary and secondary activities, one may use `stirdata:primaryActivity` and `stirdata:secondaryActivity`, but all must be recorded also using `legal:companyActivity`.
+
+: Predicate IRI
+:: `legal:companyActivity`
+: Presence
+:: Mandatory
+: Data type
+:: [Legal entity activity](#vocab-NACE).
+: Example
+:: See [Legal entity activity](#vocab-NACE).
+
+### Primary legal entity activity
+
+In case of differentiation between primary and secondary activities, one may use `stirdata:primaryActivity` and `stirdata:secondaryActivity`, but all must be recorded also using `legal:companyActivity`.
+
+: Predicate IRI
+:: `stirdata:primaryActivity`
+: Presence
+:: Optional
+: Data type
+:: [Legal entity activity](#vocab-NACE).
+: Example
+:: See [Legal entity activity](#vocab-NACE).
+
+### Secondary legal entity activity
+
+In case of differentiation between primary and secondary activities, one may use `stirdata:primaryActivity` and `stirdata:secondaryActivity`, but all must be recorded also using `legal:companyActivity`.
+
+: Predicate IRI
+:: `stirdata:secondaryActivity`
+: Presence
+:: Optional
+: Data type
+:: [Legal entity activity](#vocab-NACE).
+: Example
+:: See [Legal entity activity](#vocab-NACE).
+
+### Auxiliary legal entity activity
+
+: Predicate IRI
+:: `stirdata:auxiliaryActivity`
+: Presence
+:: Optional
+: Data type
+:: [Legal entity activity](#vocab-NACE).
+: Example
+:: See [Legal entity activity](#vocab-NACE).
+
+### Company type
+
+: Predicate IRI
+:: `legal:companyType`
+: Presence
+:: Optional
+: Data type
+:: [[#CompanyType]] IRI
+: Example
+:: 
+    ```turtle
+[] a legal:LegalEntity ;
+   legal:companyType <https://w3id.org/stirdata/resource/companyType/item/SP> .
+    ```
+
+### E-mail
+
+: Predicate IRI
+:: `schema:email`
+: Presence
+:: Optional
+: Data type
+:: String
+: Example
+:: 
+    ```turtle
+[] a legal:LegalEntity ;
+   schema:email "example@example.org" .
+    ```
+
+### Telephone number
+
+: Predicate IRI
+:: `schema:telephone`
+: Presence
+:: Optional
+: Data type
+:: String
+: Example
+:: 
+    ```turtle
+[] a legal:LegalEntity ;
+   schema:telephone "+420123456789" .
+    ```
+
+### URL
+
+: Predicate IRI
+:: `schema:url`
+: Presence
+:: Optional
+: Data type
+:: URL
+: Example
+:: 
+    ```turtle
+[] a legal:LegalEntity ;
+   schema:url "http://example.org" .
+    ```
+
 ### Site
+If the site is also a registered site, it needs to be linked using both `org:hasSite` and `org:hasRegisteredSite`.
+
 : Predicate IRIs
 :: `org:hasRegisteredSite`
 :: `org:hasSite`
+: Presence
+:: Optional
 : Data type
 :: [[#Site]]
 : Example
 :: 
     ```turtle
-<> a regorg:RegisteredOrganization ;
+<> a legal:LegalEntity ;
    org:hasRegisteredSite <#site> ;
    org:hasSite <#site> .
 
 <#site> a org:Site .
     ```
 
-### Legal form
-: Predicate IRI
-:: `rov:orgType`
-: Data type
-:: IRI from [[#GLEIF]].
-: Example
-:: 
-    ```turtle
-[] a regorg:RegisteredOrganization ;
-   regorg:orgType <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselník/GLEIF/CZ/6CQN> .
-    ```
+### Unit
 
-Note: The exact IRIs are TBD. The vocabulary is not available as RDF at the publisher and needs to be skosified in-house.
-
-### Identifier
 : Predicate IRIs
-:: `rov:registration`
+:: `org:hasUnit`
+: Presence
+:: Optional
 : Data type
-:: [[#Identifier]]
+:: [[#Unit]]
 : Example
 :: 
     ```turtle
-<> a regorg:RegisteredOrganization ;
-   regorg:registration <#registration> .
+<> a legal:LegalEntity ;
+   org:hasUnit <#unit> .
 
-<#registration> a adms:Identifier .
+<#unit> a org:OrganizationalUnit .
     ```
 
-### Economic activity
-: Predicate IRI
-:: `rov:orgActivity`
+### Registered address
+
+The use of legal:registeredAddress is obligatory for the business address.
+In case of only one known address is a shortcut for `org:hasRegisteredSite/org:siteAddress` path.
+There should be only one `legal:registeredAddress`.
+
+: Predicate IRIs
+:: `legal:registeredAddress`
+: Presence
+:: Optional
 : Data type
-:: IRI from [[#vocab-NACE]].
+:: [[#Address]]
 : Example
 :: 
     ```turtle
-[] a regorg:RegisteredOrganization ;
-   rov:orgActivity <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/016> .
+<> a legal:LegalEntity ;
+   legal:registeredAddress <#address> .
+
+<#address> a locn:Address .
     ```
 
-Note: The exact IRIs are TBD. The vocabulary is not available as RDF at the publisher and needs to be skosified in-house.
-In addition, there are national extensions, e.g. \[CZ-NACE](https://stirdata.opendata.cz/dataset?iri=https%3A%2F%2Fstirdata.opendata.cz%2Fresource%2Fdataset%2Fczechia%2Fnace).
-An approach to working with NACE and its national extensions is TBD.
+### Postal address
 
-Registration Identifier {#Identifier}
+: Predicate IRIs
+:: `stirdata:postalAddress`
+: Presence
+:: Optional
+: Data type
+:: [[#Address]]
+: Example
+:: 
+    ```turtle
+<> a legal:LegalEntity ;
+   stirdata:postalAddress <#address> .
+
+<#address> a locn:Address .
+    ```
+
+### Street address
+
+: Predicate IRIs
+:: `stirdata:streetAddress`
+: Presence
+:: Optional
+: Data type
+:: [[#Address]]
+: Example
+:: 
+    ```turtle
+<> a legal:LegalEntity ;
+   stirdata:streetAddress <#address> .
+
+<#address> a locn:Address .
+    ```
+
+Identifier {#Identifier}
 -----------------------
+
 : Class IRI
 :: `adms:Identifier`
+: Presence
+:: Mandatory
 : Example
 ::  
     ```turtle
@@ -159,8 +395,11 @@ Registration Identifier {#Identifier}
     ```
 
 ### Value
+
 : Predicate IRIs
 :: `skos:notation`
+: Presence
+:: Mandatory
 : Data type
 :: `xsd:string`
 : Example
@@ -170,10 +409,57 @@ Registration Identifier {#Identifier}
   skos:notation "27463095" .
     ```
 
+### Issued date
+
+: Predicate IRIs
+:: `dct:issued`
+: Presence
+:: Optional
+: Data type
+:: `xsd:date`
+: Example
+:: 
+    ```turtle
+<> a adms:Identifier ;
+  dct:issued "2022-02-01"^^xsd:date .
+    ```
+
+### Creator
+
+: Predicate IRIs
+:: `dct:creator`
+: Presence
+:: Optional
+: Data type
+:: `xsd:string`
+: Example
+:: 
+    ```turtle
+<> a adms:Identifier ;
+  dct:creator "Id issuing agency" .
+    ```
+
+Unit {#Unit}
+------------
+Organizational unit of a company.
+Can have all the properties of a [[#Company]].
+: Class IRI
+:: `org:OrganizationalUnit`
+: Presence
+:: Mandatory
+: Example
+:: 
+    ```turtle
+<> a org:OrganizationalUnit .
+    ```
+
 Site {#Site}
-----
+------------
+
 : Class IRI
 :: `org:Site`
+: Presence
+:: Mandatory
 : Example
 :: 
     ```turtle
@@ -181,8 +467,11 @@ Site {#Site}
     ```
 
 ### Site address
+
 : Predicate IRI
 :: `org:siteAddress`
+: Presence
+:: Mandatory
 : Data type
 :: [[#Address]]
 : Example
@@ -193,11 +482,14 @@ Site {#Site}
     ```
 
 Address {#Address}
--------
-ISA2 Core location vocabulary
+------------------
+
+[Address](https://semiceu.github.io/Core-Location-Vocabulary/releases/2.00/#Address) from the Core Location Vocabulary.
 
 : Class IRI
 :: `locn:Address`
+: Presence
+:: Mandatory
 : Example
 :: 
     ```turtle
@@ -211,20 +503,54 @@ ISA2 Core location vocabulary
   locn:adminUnitL2 "Pardubice"@cs;
     ```
 
-### NUTS3
+### Administrative unit
 : Predicate IRI
-:: `http://data.businessgraph.io/ontology#adminUnitL4`
+:: `m8g:adminUnit`
 : Data type
-:: IRI from [[#vocab-NUTS]].
+:: [[#AdministrativeUnit]]
+: Presence
+:: Mandatory
+
+Administrative Unit {#AdministrativeUnit}
+------------------
+
+: Class IRI
+:: `m8g:AdminUnit`
+: Presence
+:: Mandatory
+: Example
+:: 
+```turtle
+<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit .
+```
+
+### Level
+: Predicate IRI
+:: `m8g:level`
+: Data type
+:: IRI from [[#vocab-AdminUnitLevels]].
+: Presence
+:: Mandatory
 : Example
 :: 
     ```turtle
-<> a locn:Address;
-  <http://data.businessgraph.io/ontology#adminUnitL4> <http://nuts.geovocab.org/id/CZ053> .
+<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
+  m8g:level <https://lod.stirdata.eu/model/adminUnitLevel/NUTS-3> .
     ```
 
-Note: The exact IRIs are TBD. The vocabulary is available as RDF in various versions and with various IRIs.
-An approach to working with NUTS and its national extensions is TBD.
+### Code
+: Predicate IRI
+:: `m8g:code`
+: Data type
+:: IRI of the administrative unit
+: Presence
+:: Mandatory
+: Example
+:: 
+    ```turtle
+<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
+  m8g:code <http://nuts.geovocab.org/id/CZ053> .
+    ```
 
 
 Used Controlled Vocabularies
@@ -232,6 +558,7 @@ Used Controlled Vocabularies
 
 Country {#vocab-Country}
 ------------------------
+
 The [Country](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country) Authority Table from the [EU Vocabularies](https://op.europa.eu/en/web/eu-vocabularies).
 This vocabulary is already in RDF and provides IRIs for individual countries.
 
@@ -239,13 +566,53 @@ NUTS {#vocab-NUTS}
 ------------------
  
 
-NACE {#vocab-NACE}
-------------------
-[https://ec.europa.eu/competition/mergers/cases/index/nace_all.html](https://ec.europa.eu/competition/mergers/cases/index/nace_all.html)
+Company Type {#CompanyType}
+-----------------------
 
-### National NACE extensions
-In addition, there are national extensions, e.g. \[CZ-NACE](https://stirdata.opendata.cz/dataset?iri=https%3A%2F%2Fstirdata.opendata.cz%2Fresource%2Fdataset%2Fczechia%2Fnace).
-An approach to working with NACE and its national extensions is TBD.
+The Company type is currently used to distinguish mainly sole traders from other types of companies.
+Since there is no Linked Data ready code list, and the company types are usually defined by national legislation, and are therefore uninteroperable EU-wide, we are creating a high-level one within STIRData for some basic use cases.
+
+: Class IRI
+:: `skos:Concept`
+: Example
+::  
+    ```turtle
+<https://w3id.org/stirdata/resource/companyType/item/SP> a skos:Concept .
+    ```
+
+Administrative unit level {#vocab-AdminUnitLevels}
+---------------------------------
+
+
+Legal entity activity {#vocab-NACE}
+---------------------------------
+
+: Class IRI
+:: `skos:Concept`
+: Description
+:: IRI of a [[#vocab-NACE]] code mapped to a NACE Rev2 instances via `skos:exatctMatch`.
+
+STIRData supports national NACE extensions, which are quite common in the EU.
+For those national NACE codes to be usable, they need to be linked to a central NACE code list.
+Since there is no official NACE code list published as Linked Data, or at least with IRIs assigned to the items, we create our own represdentation.
+
+### NACE item from a national NACE extension usable in STIRData model
+For a NACE national extension item to be usable, it needs to have at least the following properties:
+
+```turtle
+<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/6820> a stirdata:BusinessActivity, skos:Concept ;
+    skos:prefLabel "Pronájem a správa vlastních nebo pronajatých nemovitostí"@cs ;
+    skos:notation "6820" ;
+    skos:inScheme <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz> ;
+    stirdata:level 4 ;
+    skos:broader <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/682> ;
+    skos:exactMatch <https://w3id.org/stirdata/resource/nace/nace-rev2/item/68.20> .
+```
+
+### Examples of the IRIs of items from the central NACE code list
+- `https://w3id.org/stirdata/resource/nace/nace-rev2/item/A`
+- `https://w3id.org/stirdata/resource/nace/nace-rev2/item/10`
+- `https://w3id.org/stirdata/resource/nace/nace-rev2/item/10.1`
 
 ISO 20275: Entity Legal Forms Code List {#GLEIF}
 ------------------------------------------------
@@ -337,7 +704,7 @@ Czech company example
 
 ```turtle
 <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095>
-  a regorg:RegisteredOrganization;
+  a legal:LegalEntity;
   regorg:legalName "TechnoPark Management a.s."@cs;
   regorg:registration <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace>;
   org:hasRegisteredSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2015-11-13> ;
