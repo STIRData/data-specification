@@ -10,23 +10,24 @@ Status: LS
 Group: STIRData
 URL: https://stirdata.github.io/data-specification/
 Editor: Jakub Klímek, Charles University https://www.mff.cuni.cz, jakub.klimek@matfyz.cuni.cz, https://jakub.klímek.com/
+Editor: Alexandros Chortaras, National Technical University of Athens https://www.ntua.gr/, achort@cs.ntua.gr, https://www.ece.ntua.gr/en/staff/217
 Abstract: This specification describes the data model currently used in the STIRData project. It is based on the euBusinessGraph data model.
 </pre>
 
 Introduction {#intro}
 =====================
 
-[STIRData](https://stirdata.eu) is a CEF Telecom project aiming at helping business registry publishers to publish their data as interoperable linked data.
-Within the project, a proof-of-concept platform will be developed, showcasing what can be done in a decentralized and cetralized fashion when the data is published according to the specification.
+[STIRData](https://stirdata.eu) is a CEF Telecom project aiming at helping business registry publishers to publish their data as interoperable Linked Data.
+Within the project, a proof-of-concept platform is developed, showcasing what can be done in a decentralized and cetralized fashion when the data is published according to the specification.
 
 Data model
 ==========
-The data model is directly based on the [data model](https://docs.google.com/document/d/1dhMOTlIOC6dOK_jksJRX0CB-GIRoiYY6fWtCnZArUhU) developed within the [euBusinessGraph H2020 project](https://www.eubusinessgraph.eu/).
+The data model is directly based on the [Core Vocabularies](https://joinup.ec.europa.eu/collection/semantic-interoperability-community-semic/core-vocabularies).
 
 Used prefixes:
 ```turtle
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
@@ -42,6 +43,7 @@ Used prefixes:
 
 Company {#Company}
 ------------------
+A class representing a Company.
 
 : Class IRI
 :: `legal:LegalEntity`
@@ -141,7 +143,7 @@ Company {#Company}
 : Presence
 :: Optional
 : Data type
-:: String
+:: `xsd:string`
 : Example
 :: 
     ```turtle
@@ -190,7 +192,20 @@ In case of differentiation between primary and secondary activities, one may use
 : Data type
 :: [Legal entity activity](#vocab-NACE).
 : Example
-:: See [Legal entity activity](#vocab-NACE).
+::
+```turtle
+ <> a legal:LegalEntity ;
+    legal:companyActivity <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/01> .
+ 
+ <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/01>
+    a skos:Concept, stirdata:BusinessActivity;
+    skos:prefLabel "Rostlinná a živočišná výroba, myslivost a související činnosti"@cs;
+    skos:notation "01";
+    skos:inScheme <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz>;
+    stirdata:level 2;
+    skos:exactMatch <https://w3id.org/stirdata/resource/nace/nace-rev2/item/01>;
+    skos:broader <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/A> .
+```
 
 ### Primary legal entity activity
 
@@ -251,7 +266,7 @@ In case of differentiation between primary and secondary activities, one may use
 : Presence
 :: Optional
 : Data type
-:: String
+:: `xsd:string`
 : Example
 :: 
     ```turtle
@@ -266,7 +281,7 @@ In case of differentiation between primary and secondary activities, one may use
 : Presence
 :: Optional
 : Data type
-:: String
+:: `xsd:string`
 : Example
 :: 
     ```turtle
@@ -510,18 +525,41 @@ Address {#Address}
 :: [[#AdministrativeUnit]]
 : Presence
 :: Mandatory
+: Example
+:: 
+```turtle
+<> a legal:LegalEntity ;
+    m8g:adminUnit <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
+
+<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
+  m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> ;
+  m8g:code <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
+```
 
 Administrative Unit {#AdministrativeUnit}
-------------------
+-----------------------------------------
+
+For an administrative unit linked to an address, a specification of its LAU or NUTS region is mandatory in the following fashion.
+Representation of Country is optional.
+For Countries, items from the [Country authority table](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country) are used.
+For NUTS and LAU codes, since there is no official up to date Linked Data representation, we create our own, which needs to be used.
 
 : Class IRI
 :: `m8g:AdminUnit`
 : Presence
 :: Mandatory
-: Example
+: Examples
 :: 
 ```turtle
 <https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit .
+```
+:: 
+```turtle
+<https://w3id.org/stirdata/resource/lau/item/CZ_569810> a m8g:AdminUnit .
+```
+:: 
+```turtle
+<http://publications.europa.eu/resource/authority/country/FRA> a m8g:AdminUnit .
 ```
 
 ### Level
@@ -531,11 +569,21 @@ Administrative Unit {#AdministrativeUnit}
 :: IRI from [[#vocab-AdminUnitLevels]].
 : Presence
 :: Mandatory
-: Example
+: Examples
 :: 
     ```turtle
 <https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
-  m8g:level <https://lod.stirdata.eu/model/adminUnitLevel/NUTS-3> .
+  m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> .
+    ```
+:: 
+    ```turtle
+<https://w3id.org/stirdata/resource/lau/item/CZ_569810> a m8g:AdminUnit;
+  m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/LAU> .
+    ```
+:: 
+    ```turtle
+<http://publications.europa.eu/resource/authority/country/FRA> a m8g:AdminUnit;
+  m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/Country> .
     ```
 
 ### Code
@@ -545,11 +593,21 @@ Administrative Unit {#AdministrativeUnit}
 :: IRI of the administrative unit
 : Presence
 :: Mandatory
-: Example
+: Examples
 :: 
     ```turtle
 <https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
-  m8g:code <http://nuts.geovocab.org/id/CZ053> .
+  m8g:code <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
+    ```
+:: 
+    ```turtle
+<https://w3id.org/stirdata/resource/lau/item/CZ_569810> a m8g:AdminUnit;
+  m8g:code <https://w3id.org/stirdata/resource/lau/item/CZ_569810> .
+    ```
+:: 
+    ```turtle
+<http://publications.europa.eu/resource/authority/country/FRA> a m8g:AdminUnit;
+  m8g:code <http://publications.europa.eu/resource/authority/country/FRA> .
     ```
 
 
@@ -560,44 +618,43 @@ Country {#vocab-Country}
 ------------------------
 
 The [Country](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country) Authority Table from the [EU Vocabularies](https://op.europa.eu/en/web/eu-vocabularies).
-This vocabulary is already in RDF and provides IRIs for individual countries.
-
-NUTS {#vocab-NUTS}
-------------------
- 
+Is used in [[#AdministrativeUnit]].
 
 Company Type {#CompanyType}
------------------------
+---------------------------
 
 The Company type is currently used to distinguish mainly sole traders from other types of companies.
 Since there is no Linked Data ready code list, and the company types are usually defined by national legislation, and are therefore uninteroperable EU-wide, we are creating a high-level one within STIRData for some basic use cases.
 
-: Class IRI
-:: `skos:Concept`
-: Example
-::  
-    ```turtle
+```turtle
 <https://w3id.org/stirdata/resource/companyType/item/SP> a skos:Concept .
-    ```
+```
 
 Administrative unit level {#vocab-AdminUnitLevels}
+--------------------------------------------------
+
+Is used in [[#AdministrativeUnit]].
+So far contains 3 items.
+```turtle
+<https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> a skos:Concept .
+<https://w3id.org/stirdata/resource/adminUnitLevel/LAU> a skos:Concept .
+<https://w3id.org/stirdata/resource/adminUnitLevel/Country> a skos:Concept .
+```
+
+NACE - Legal entity activity {#vocab-NACE}
 ---------------------------------
 
-
-Legal entity activity {#vocab-NACE}
----------------------------------
-
-: Class IRI
-:: `skos:Concept`
-: Description
-:: IRI of a [[#vocab-NACE]] code mapped to a NACE Rev2 instances via `skos:exatctMatch`.
+The activities are represented by IRIs of national NACE codes mapped to NACE Rev2 instances via `skos:exatctMatch`.
 
 STIRData supports national NACE extensions, which are quite common in the EU.
 For those national NACE codes to be usable, they need to be linked to a central NACE code list.
 Since there is no official NACE code list published as Linked Data, or at least with IRIs assigned to the items, we create our own represdentation.
 
 ### NACE item from a national NACE extension usable in STIRData model
-For a NACE national extension item to be usable, it needs to have at least the following properties:
+For a NACE national extension item to be usable, it needs to be described sufficiently.
+Items corresponding to NACE level 1 through 4 need to be linked using `skos:exactMatch` to the central NACE code list.
+Items of lower levels need to be mapped to items of higher levels using `skos:broader`.
+Example:
 
 ```turtle
 <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/6820> a stirdata:BusinessActivity, skos:Concept ;
@@ -613,15 +670,36 @@ For a NACE national extension item to be usable, it needs to have at least the f
 - `https://w3id.org/stirdata/resource/nace/nace-rev2/item/A`
 - `https://w3id.org/stirdata/resource/nace/nace-rev2/item/10`
 - `https://w3id.org/stirdata/resource/nace/nace-rev2/item/10.1`
+- `https://w3id.org/stirdata/resource/nace/nace-rev2/item/68.20`
 
-ISO 20275: Entity Legal Forms Code List {#GLEIF}
-------------------------------------------------
-[https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list](https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list)
+NUTS - Nomenclature of territorial units for statistics {#vocab-NUTS}
+---------------------------------------------------------------------
+[NUTS](https://ec.europa.eu/eurostat/web/nuts/history) is a code list of territorial units, which can be used to aggregate data over those units.
+Is used in [[#AdministrativeUnit]].
+In STIRData, we presume the NUTS2021 version being used.
 
-Note: The vocabulary is in the form of a CSV file.
-There was a EBG version, but it seems non-functional after the EBG project finished.
-Approach to using this vocabulary is TDB.
+This is an example of a NUTS in the Czech Republic:
+```turtle
+<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
+  m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> ;
+  m8g:code <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
+```
 
+LAUs - Local Administrative Units {#vocab-LAU}
+----------------------------------------------
+[LAUs](https://ec.europa.eu/eurostat/web/nuts/local-administrative-units) are lower-level territorial units, which can be used to aggregate data over those units.
+Is used in [[#AdministrativeUnit]].
+
+This is an example of a LAU in the Czech Republic, with no particular version specified, therefore, we assume the newest one available:
+```turtle
+<https://w3id.org/stirdata/resource/lau/item/CZ_569810> a m8g:AdminUnit;
+  m8g:code <https://w3id.org/stirdata/resource/lau/item/CZ_569810> ;
+  m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/LAU> .
+```
+
+IRIs for specific versions of LAUs look like:
+- `https://w3id.org/stirdata/resource/lau/2021/item/…`
+- `https://w3id.org/stirdata/resource/lau/2020/item/…`
 
 Recommended metadata records in data catalogs
 =============================================
