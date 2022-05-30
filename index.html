@@ -2008,7 +2008,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">STIRData business data model</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-05-29">29 May 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-05-30">30 May 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2090,7 +2090,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        <ol class="toc">
         <li><a href="#agent-name"><span class="secno">2.7.1</span> <span class="content">Agent name</span></a>
         <li><a href="#url①"><span class="secno">2.7.2</span> <span class="content">URL</span></a>
-        <li><a href="#lei-code①"><span class="secno">2.7.3</span> <span class="content">LEI code</span></a>
+        <li><a href="#registration-authority-code"><span class="secno">2.7.3</span> <span class="content">Registration Authority Code</span></a>
        </ol>
      </ol>
     <li>
@@ -2811,8 +2811,8 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
      <p>Optional</p>
     <dt data-md>Examples
     <dd data-md>
-<pre class="language-turtle highlight"><c- g>&lt;https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593></c-> <c- b>a</c-> <c- nn>dcterms</c-><c- p>:</c-><c- f>Agent</c-><c- p>;</c->
-  <c- nn>dcterms</c-><c- p>:</c-><c- f>title</c-> <c- s>"Český statistický úřad"</c-><c- o>@</c->cs <c- p>.</c->
+<pre class="language-turtle highlight"><c- g>&lt;http://lv.data.stirdata.eu/resource/agency/uz></c-> <c- b>a</c-> <c- nn>dcterms</c-><c- p>:</c-><c- f>Agent</c-><c- p>;</c->
+  <c- nn>dcterms</c-><c- p>:</c-><c- f>title</c-> <c- s>"Uzņēmumu reģistrs"</c-><c- o>@</c->lv <c- p>,</c-> <c- s>"Enterprise Register"</c-><c- o>@</c->en <c- p>.</c->
 </pre>
    </dl>
    <h4 class="heading settled" data-level="2.7.2" id="url①"><span class="secno">2.7.2. </span><span class="content">URL</span><a class="self-link" href="#url①"></a></h4>
@@ -2828,11 +2828,11 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
      <p>Optional</p>
     <dt data-md>Examples
     <dd data-md>
-<pre class="language-turtle highlight"><c- g>&lt;https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593></c-> <c- b>a</c-> <c- nn>dcterms</c-><c- p>:</c-><c- f>Agent</c-><c- p>;</c->
-  <c- nn>schema</c-><c- p>:</c-><c- f>url</c-> <c- g>&lt;https://www.czso.cz/></c-> <c- p>.</c->
+<pre class="language-turtle highlight"><c- g>&lt;http://lv.data.stirdata.eu/resource/agency/uz></c-> <c- b>a</c-> <c- nn>dcterms</c-><c- p>:</c-><c- f>Agent</c-><c- p>;</c->
+  <c- nn>schema</c-><c- p>:</c-><c- f>url</c-> <c- g>&lt;https://www.ur.gov.lv/></c-> <c- p>.</c->
 </pre>
    </dl>
-   <h4 class="heading settled" data-level="2.7.3" id="lei-code①"><span class="secno">2.7.3. </span><span class="content">LEI code</span><a class="self-link" href="#lei-code①"></a></h4>
+   <h4 class="heading settled" data-level="2.7.3" id="registration-authority-code"><span class="secno">2.7.3. </span><span class="content">Registration Authority Code</span><a class="self-link" href="#registration-authority-code"></a></h4>
    <dl>
     <dt data-md>Predicate IRI
     <dd data-md>
@@ -2845,8 +2845,8 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
      <p>Optional</p>
     <dt data-md>Examples
     <dd data-md>
-<pre class="language-turtle highlight"><c- g>&lt;https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593></c-> <c- b>a</c-> <c- nn>dcterms</c-><c- p>:</c-><c- f>Agent</c-><c- p>;</c->
-  <c- nn>stirdata</c-><c- p>:</c-><c- f>racCode</c-> <c- s>"RA000161"</c-> <c- p>.</c->
+<pre class="language-turtle highlight"><c- g>&lt;http://lv.data.stirdata.eu/resource/agency/uz></c-> <c- b>a</c-> <c- nn>dcterms</c-><c- p>:</c-><c- f>Agent</c-><c- p>;</c->
+  <c- nn>stirdata</c-><c- p>:</c-><c- f>racCode</c-> <c- s>"RA000423"</c-> <c- p>.</c->
 </pre>
    </dl>
    <h2 class="heading settled" data-level="3" id="used-controlled-vocabularies"><span class="secno">3. </span><span class="content">Used Controlled Vocabularies</span><a class="self-link" href="#used-controlled-vocabularies"></a></h2>

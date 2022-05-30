@@ -648,8 +648,8 @@ Agent {#Agent}
 : Examples
 :: 
     ```turtle
-<https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593> a dcterms:Agent;
-  dcterms:title "Český statistický úřad"@cs .
+<http://lv.data.stirdata.eu/resource/agency/uz> a dcterms:Agent;
+  dcterms:title "Uzņēmumu reģistrs"@lv , "Enterprise Register"@en .
     ```
 
 ### URL
@@ -662,11 +662,11 @@ Agent {#Agent}
 : Examples
 :: 
     ```turtle
-<https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593> a dcterms:Agent;
-  schema:url <https://www.czso.cz/> .
+<http://lv.data.stirdata.eu/resource/agency/uz> a dcterms:Agent;
+  schema:url <https://www.ur.gov.lv/> .
     ```
 
-### LEI code
+### Registration Authority Code
 : Predicate IRI
 :: `stirdata:racCode`
 : Data type
@@ -676,8 +676,8 @@ Agent {#Agent}
 : Examples
 :: 
     ```turtle
-<https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593> a dcterms:Agent;
-  stirdata:racCode "RA000161" .
+<http://lv.data.stirdata.eu/resource/agency/uz> a dcterms:Agent;
+  stirdata:racCode "RA000423" .
     ```
 
 Used Controlled Vocabularies
