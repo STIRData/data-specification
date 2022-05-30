@@ -151,6 +151,21 @@ A class representing a Company.
    stirdata:leiCode "5493000IBP32UQZ0KL24" .
     ```
 
+### Link to official registry pages
+
+: Predicate IRIs
+:: `schema:sameAs`
+: Presence
+:: Optional
+: Data type
+:: IRI
+: Example
+:: 
+    ```turtle
+<http://ee.data.stirdata.eu/lodview/resource/organization/10060552> a legal:LegalEntity ;
+   schema:sameAs <https://ariregister.rik.ee/est/company/10060552> .
+    ```
+
 ### Founding date
 
 : Predicate IRI
@@ -188,7 +203,7 @@ In case of differentiation between primary and secondary activities, one may use
 : Predicate IRI
 :: `legal:companyActivity`
 : Presence
-:: Mandatory
+:: Optional
 : Data type
 :: [Legal entity activity](#vocab-NACE).
 : Example
@@ -524,7 +539,7 @@ Address {#Address}
 : Data type
 :: [[#AdministrativeUnit]]
 : Presence
-:: Mandatory
+:: Optional
 : Example
 :: 
 ```turtle
@@ -610,6 +625,60 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
   m8g:code <http://publications.europa.eu/resource/authority/country/FRA> .
     ```
 
+Agent {#Agent}
+-----------------------------------------
+
+: Class IRI
+:: `dcterms:Agent`
+: Presence
+:: Mandatory
+: Examples
+:: 
+```turtle
+<https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593> a dcterms:Agent .
+```
+
+### Agent name
+: Predicate IRI
+:: `dcterms:title`
+: Data type
+:: `rdf:langString`
+: Presence
+:: Optional
+: Examples
+:: 
+    ```turtle
+<https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593> a dcterms:Agent;
+  dcterms:title "Český statistický úřad"@cs .
+    ```
+
+### URL
+: Predicate IRI
+:: `schema:url`
+: Data type
+:: URL
+: Presence
+:: Optional
+: Examples
+:: 
+    ```turtle
+<https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593> a dcterms:Agent;
+  schema:url <https://www.czso.cz/> .
+    ```
+
+### LEI code
+: Predicate IRI
+:: `stirdata:racCode`
+: Data type
+:: `xsd:string`
+: Presence
+:: Optional
+: Examples
+:: 
+    ```turtle
+<https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593> a dcterms:Agent;
+  stirdata:racCode "RA000161" .
+    ```
 
 Used Controlled Vocabularies
 ============================
