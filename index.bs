@@ -208,7 +208,7 @@ In case of differentiation between primary and secondary activities, one may use
 :: [Legal entity activity](#vocab-NACE).
 : Example
 ::
-```turtle
+    ```turtle
  <> a legal:LegalEntity ;
     legal:companyActivity <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/01> .
  
@@ -220,7 +220,7 @@ In case of differentiation between primary and secondary activities, one may use
     stirdata:level 2;
     skos:exactMatch <https://w3id.org/stirdata/resource/nace/nace-rev2/item/01>;
     skos:broader <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/A> .
-```
+    ```
 
 ### Primary legal entity activity
 
@@ -542,14 +542,14 @@ Address {#Address}
 :: Optional
 : Example
 :: 
-```turtle
+    ```turtle
 <> a legal:LegalEntity ;
     m8g:adminUnit <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
 
 <https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
   m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> ;
   m8g:code <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
-```
+    ```
 
 Administrative Unit {#AdministrativeUnit}
 -----------------------------------------
@@ -565,17 +565,17 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
 :: Mandatory
 : Examples
 :: 
-```turtle
+    ```turtle
 <https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit .
-```
+    ```
 :: 
-```turtle
+    ```turtle
 <https://w3id.org/stirdata/resource/lau/item/CZ_569810> a m8g:AdminUnit .
-```
+    ```
 :: 
-```turtle
+    ```turtle
 <http://publications.europa.eu/resource/authority/country/FRA> a m8g:AdminUnit .
-```
+    ```
 
 ### Level
 : Predicate IRI
@@ -634,9 +634,9 @@ Agent {#Agent}
 :: Mandatory
 : Examples
 :: 
-```turtle
+    ```turtle
 <https://rpp-opendata.egon.gov.cz/odrpp/zdroj/orgán-veřejné-moci/00025593> a dcterms:Agent .
-```
+    ```
 
 ### Agent name
 : Predicate IRI
