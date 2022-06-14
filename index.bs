@@ -743,7 +743,7 @@ Example:
 
 NUTS - Nomenclature of territorial units for statistics {#vocab-NUTS}
 ---------------------------------------------------------------------
-[NUTS](https://ec.europa.eu/eurostat/web/nuts/history) is a code list of territorial units, which can be used to aggregate data over those units.
+\[NUTS](https://ec.europa.eu/eurostat/web/nuts/history) is a code list of territorial units, which can be used to aggregate data over those units.
 Is used in [[#AdministrativeUnit]].
 In STIRData, we presume the NUTS2021 version being used.
 
@@ -756,7 +756,7 @@ This is an example of a NUTS in the Czech Republic:
 
 LAUs - Local Administrative Units {#vocab-LAU}
 ----------------------------------------------
-[LAUs](https://ec.europa.eu/eurostat/web/nuts/local-administrative-units) are lower-level territorial units, which can be used to aggregate data over those units.
+\[LAUs](https://ec.europa.eu/eurostat/web/nuts/local-administrative-units) are lower-level territorial units, which can be used to aggregate data over those units.
 Is used in [[#AdministrativeUnit]].
 
 This is an example of a LAU in the Czech Republic, with no particular version specified, therefore, we assume the newest one available:
