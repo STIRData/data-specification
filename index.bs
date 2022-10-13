@@ -543,7 +543,7 @@ Address {#Address}
 : Example
 :: 
     ```turtle
-<> a legal:LegalEntity ;
+<> a locn:Address ;
     m8g:adminUnit <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
 
 <https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
