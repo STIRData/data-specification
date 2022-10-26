@@ -841,15 +841,27 @@ SELECT ?title ?endpoint WHERE {
 }
 ```
 
-Data freshness indication
+Additional metadata
 =========================
-The data from a business registry compliant with this specification should also contain a dataset-wide information about when the last update of the data occured.
-For some use cases of such data, it is crucial to know how fresh they are.
+The data from a business registry compliant with this specification should also contain additional dataset-wide information that is currently not supported by DCAT-AP and therefore cannot be found in a data catalog.
+Compliant applications therefore search for this infomration in the SPARQL endpoint containing compliant data.
 
-Therefore, an RDF statement with `stirdata:lastUpdate` predicate should be present in each compliant dataset.
+The first such thing is information about when the last update of the data occured.
+For some use cases of such data, it is crucial to know how fresh they are.
+Therefore, the `dcterms:modified` predicate should be present in each compliant dataset to indicate this.
+
+In addition, we support indication of the country covered by the business registry using the `dcterms:spatial` with values from the [Country](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country) Authority Table from the [EU Vocabularies](https://op.europa.eu/en/web/eu-vocabularies).
+Moreover, the link to the original data source (`dcterms:source`) and its license/terms of use (`dcterms:license`) can be used by, e.g., the STIRData platform to better describe the dataset.
+
+Finally, if a national NACE extension is used in the dataset, a link to its DCAT-AP representation is required using the `stirdata:naceDataset` predicate.
 For example:
 ```turtle
-[] stirdata:lastUpdate "2022-05-20T08:00:21+02:00"^^xsd:dateTimeStamp .
+<https://obchodní-rejstřík.stirdata.opendata.cz/stirdata> 
+    dcterms:modified "2022-05-20T08:00:21+02:00"^^xsd:dateTimeStamp ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/country/CZE> ;
+    stirdata:naceDataset <https://data.gov.cz/zdroj/datové-sady/00216208/03c70bed41ee7397c72b6daeba9257a4> ;
+    dcterms:source <https://dataor.justice.cz> .
+   <https://dataor.justice.cz> dcterms:license <https://dataor.justice.cz/files/ISVR_OpenData_Podminky_uziti.pdf> .
 ```
 
 Examples
