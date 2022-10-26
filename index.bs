@@ -218,7 +218,7 @@ In case of differentiation between primary and secondary activities, one may use
     skos:notation "01";
     skos:inScheme <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz>;
     stirdata:level 2;
-    skos:exactMatch <https://w3id.org/stirdata/resource/nace/nace-rev2/item/01>;
+    skos:exactMatch <http://data.europa.eu/ux2/nace2/01>;
     skos:broader <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/A> .
     ```
 
@@ -544,11 +544,11 @@ Address {#Address}
 :: 
     ```turtle
 <> a locn:Address ;
-    m8g:adminUnit <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
+    m8g:adminUnit <http://data.europa.eu/nuts/code/CZ010> .
 
-<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
+<http://data.europa.eu/nuts/code/CZ010> a m8g:AdminUnit;
   m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> ;
-  m8g:code <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
+  m8g:code <http://data.europa.eu/nuts/code/CZ010> .
     ```
 
 Administrative Unit {#AdministrativeUnit}
@@ -566,7 +566,7 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
 : Examples
 :: 
     ```turtle
-<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit .
+<http://data.europa.eu/nuts/code/CZ010> a m8g:AdminUnit .
     ```
 :: 
     ```turtle
@@ -587,7 +587,7 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
 : Examples
 :: 
     ```turtle
-<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
+<http://data.europa.eu/nuts/code/CZ010> a m8g:AdminUnit;
   m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> .
     ```
 :: 
@@ -611,8 +611,8 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
 : Examples
 :: 
     ```turtle
-<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
-  m8g:code <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
+<http://data.europa.eu/nuts/code/CZ010> a m8g:AdminUnit;
+  m8g:code <http://data.europa.eu/nuts/code/CZ010> .
     ```
 :: 
     ```turtle
@@ -716,8 +716,7 @@ NACE - Legal entity activity {#vocab-NACE}
 The activities are represented by IRIs of national NACE codes mapped to NACE Rev2 instances via `skos:exatctMatch`.
 
 STIRData supports national NACE extensions, which are quite common in the EU.
-For those national NACE codes to be usable, they need to be linked to a central NACE code list.
-Since there is no official NACE code list published as Linked Data, or at least with IRIs assigned to the items, we create our own represdentation.
+For those national NACE codes to be usable, they need to be linked to the [NACE code list](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/nace2) published at EU Vocabularies.
 
 ### NACE item from a national NACE extension usable in STIRData model
 For a NACE national extension item to be usable, it needs to be described sufficiently.
@@ -732,26 +731,27 @@ Example:
     skos:inScheme <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz> ;
     stirdata:level 4 ;
     skos:broader <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/682> ;
-    skos:exactMatch <https://w3id.org/stirdata/resource/nace/nace-rev2/item/68.20> .
+    skos:exactMatch <http://data.europa.eu/ux2/nace2/6820> .
 ```
 
 ### Examples of the IRIs of items from the central NACE code list
-- `https://w3id.org/stirdata/resource/nace/nace-rev2/item/A`
-- `https://w3id.org/stirdata/resource/nace/nace-rev2/item/10`
-- `https://w3id.org/stirdata/resource/nace/nace-rev2/item/10.1`
-- `https://w3id.org/stirdata/resource/nace/nace-rev2/item/68.20`
+- `http://data.europa.eu/ux2/nace2/A`
+- `http://data.europa.eu/ux2/nace2/10`
+- `http://data.europa.eu/ux2/nace2/101`
+- `http://data.europa.eu/ux2/nace2/6820`
 
 NUTS - Nomenclature of territorial units for statistics {#vocab-NUTS}
 ---------------------------------------------------------------------
 \[NUTS](https://ec.europa.eu/eurostat/web/nuts/history) is a code list of territorial units, which can be used to aggregate data over those units.
 Is used in [[#AdministrativeUnit]].
 In STIRData, we presume the NUTS2021 version being used.
+The code list is published at [EU Vocabularies](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/nuts).
 
 This is an example of a NUTS in the Czech Republic:
 ```turtle
-<https://w3id.org/stirdata/resource/nuts/item/CZ010> a m8g:AdminUnit;
+<http://data.europa.eu/nuts/code/CZ010> a m8g:AdminUnit;
   m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> ;
-  m8g:code <https://w3id.org/stirdata/resource/nuts/item/CZ010> .
+  m8g:code <http://data.europa.eu/nuts/code/CZ010> .
 ```
 
 LAUs - Local Administrative Units {#vocab-LAU}
@@ -888,16 +888,16 @@ Czech company example
     locn:adminUnitL1 "Česká republika"@cs;
     locn:adminUnitL2 "Pardubice"@cs;
     m8g:adminUnit <http://publications.europa.eu/resource/authority/country/CZE>, 
-        <https://w3id.org/stirdata/resource/nuts/item/CZ053>, 
+        <http://data.europa.eu/nuts/code/CZ053>, 
         <https://w3id.org/stirdata/resource/lau/item/CZ_555134> .
 
 <http://publications.europa.eu/resource/authority/country/CZE> a m8g:AdminUnit;
     m8g:code <http://publications.europa.eu/resource/authority/country/CZE>;
     m8g:level <https://w3id.org/stirdata/resource/adminLevel/Country> .
 
-<https://w3id.org/stirdata/resource/nuts/item/CZ053> a m8g:AdminUnit;
+<http://data.europa.eu/nuts/code/CZ053> a m8g:AdminUnit;
     m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3> ;
-    m8g:code <https://w3id.org/stirdata/resource/nuts/item/CZ053> .
+    m8g:code <http://data.europa.eu/nuts/code/CZ053> .
 
 <https://w3id.org/stirdata/resource/lau/item/CZ_555134> a m8g:AdminUnit;
     m8g:level <https://w3id.org/stirdata/resource/adminUnitLevel/LAU> ;
