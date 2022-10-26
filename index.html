@@ -1487,7 +1487,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 07caf056f, updated Wed Oct 12 12:03:55 2022 -0700" name="generator">
+  <meta content="Bikeshed version 37b7e7e68, updated Fri May 27 15:08:11 2022 -0700" name="generator">
   <link href="https://stirdata.github.io/data-specification/" rel="canonical">
 <style>/* style-autolinks */
 
@@ -2008,7 +2008,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">STIRData business data model</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-10-13">13 October 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-10-26">26 October 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2109,7 +2109,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#vocab-LAU"><span class="secno">3.6</span> <span class="content">LAUs - Local Administrative Units</span></a>
      </ol>
     <li><a href="#recommended-metadata-records-in-data-catalogs"><span class="secno">4</span> <span class="content">Recommended metadata records in data catalogs</span></a>
-    <li><a href="#data-freshness-indication"><span class="secno">5</span> <span class="content">Data freshness indication</span></a>
+    <li><a href="#additional-metadata"><span class="secno">5</span> <span class="content">Additional metadata</span></a>
     <li>
      <a href="#examples"><span class="secno">6</span> <span class="content">Examples</span></a>
      <ol class="toc">
@@ -2340,7 +2340,7 @@ Within the project, a proof-of-concept platform is developed, showcasing what ca
    <c- nn>skos</c-><c- p>:</c-><c- f>notation</c-> <c- s>"01"</c-><c- p>;</c->
    <c- nn>skos</c-><c- p>:</c-><c- f>inScheme</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz></c-><c- p>;</c->
    <c- nn>stirdata</c-><c- p>:</c-><c- f>level</c-> <c- mi>2</c-><c- p>;</c->
-   <c- nn>skos</c-><c- p>:</c-><c- f>exactMatch</c-> <c- g>&lt;https://w3id.org/stirdata/resource/nace/nace-rev2/item/01></c-><c- p>;</c->
+   <c- nn>skos</c-><c- p>:</c-><c- f>exactMatch</c-> <c- g>&lt;http://data.europa.eu/ux2/nace2/01></c-><c- p>;</c->
    <c- nn>skos</c-><c- p>:</c-><c- f>broader</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/A></c-> <c- p>.</c->
 </pre>
    </dl>
@@ -2705,11 +2705,11 @@ Can have all the properties of a <a href="#Company">§ 2.1 Company</a>.
     <dt data-md>Example
     <dd data-md>
 <pre class="language-turtle highlight"><c- g>&lt;></c-> <c- b>a</c-> <c- nn>locn</c-><c- p>:</c-><c- f>Address</c-> <c- p>;</c->
-    <c- nn>m8g</c-><c- p>:</c-><c- f>adminUnit</c-> <c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ010></c-> <c- p>.</c->
+    <c- nn>m8g</c-><c- p>:</c-><c- f>adminUnit</c-> <c- g>&lt;http://data.europa.eu/nuts/code/CZ010></c-> <c- p>.</c->
 
-<c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
+<c- g>&lt;http://data.europa.eu/nuts/code/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
   <c- nn>m8g</c-><c- p>:</c-><c- f>level</c-> <c- g>&lt;https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3></c-> <c- p>;</c->
-  <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ010></c-> <c- p>.</c->
+  <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;http://data.europa.eu/nuts/code/CZ010></c-> <c- p>.</c->
 </pre>
    </dl>
    <h3 class="heading settled" data-level="2.6" id="AdministrativeUnit"><span class="secno">2.6. </span><span class="content">Administrative Unit</span><a class="self-link" href="#AdministrativeUnit"></a></h3>
@@ -2726,7 +2726,7 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
      <p>Mandatory</p>
     <dt data-md>Examples
     <dd data-md>
-<pre class="language-turtle highlight"><c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-> <c- p>.</c->
+<pre class="language-turtle highlight"><c- g>&lt;http://data.europa.eu/nuts/code/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-> <c- p>.</c->
 </pre>
     <dd data-md>
 <pre class="language-turtle highlight"><c- g>&lt;https://w3id.org/stirdata/resource/lau/item/CZ_569810></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-> <c- p>.</c->
@@ -2748,7 +2748,7 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
      <p>Mandatory</p>
     <dt data-md>Examples
     <dd data-md>
-<pre class="language-turtle highlight"><c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
+<pre class="language-turtle highlight"><c- g>&lt;http://data.europa.eu/nuts/code/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
   <c- nn>m8g</c-><c- p>:</c-><c- f>level</c-> <c- g>&lt;https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3></c-> <c- p>.</c->
 </pre>
     <dd data-md>
@@ -2773,8 +2773,8 @@ For NUTS and LAU codes, since there is no official up to date Linked Data repres
      <p>Mandatory</p>
     <dt data-md>Examples
     <dd data-md>
-<pre class="language-turtle highlight"><c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
-  <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ010></c-> <c- p>.</c->
+<pre class="language-turtle highlight"><c- g>&lt;http://data.europa.eu/nuts/code/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
+  <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;http://data.europa.eu/nuts/code/CZ010></c-> <c- p>.</c->
 </pre>
     <dd data-md>
 <pre class="language-turtle highlight"><c- g>&lt;https://w3id.org/stirdata/resource/lau/item/CZ_569810></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
@@ -2868,8 +2868,7 @@ So far contains 3 items.</p>
    <h3 class="heading settled" data-level="3.4" id="vocab-NACE"><span class="secno">3.4. </span><span class="content">NACE - Legal entity activity</span><a class="self-link" href="#vocab-NACE"></a></h3>
    <p>The activities are represented by IRIs of national NACE codes mapped to NACE Rev2 instances via <code>skos:exatctMatch</code>.</p>
    <p>STIRData supports national NACE extensions, which are quite common in the EU.
-For those national NACE codes to be usable, they need to be linked to a central NACE code list.
-Since there is no official NACE code list published as Linked Data, or at least with IRIs assigned to the items, we create our own represdentation.</p>
+For those national NACE codes to be usable, they need to be linked to the <a href="https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/nace2">NACE code list</a> published at EU Vocabularies.</p>
    <h4 class="heading settled" data-level="3.4.1" id="nace-item-from-a-national-nace-extension-usable-in-stirdata-model"><span class="secno">3.4.1. </span><span class="content">NACE item from a national NACE extension usable in STIRData model</span><a class="self-link" href="#nace-item-from-a-national-nace-extension-usable-in-stirdata-model"></a></h4>
     For a NACE national extension item to be usable, it needs to be described sufficiently.
 Items corresponding to NACE level 1 through 4 need to be linked using <code>skos:exactMatch</code> to the central NACE code list.
@@ -2881,27 +2880,28 @@ Example:
     <c- nn>skos</c-><c- p>:</c-><c- f>inScheme</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz></c-> <c- p>;</c->
     <c- nn>stirdata</c-><c- p>:</c-><c- f>level</c-> <c- mi>4</c-> <c- p>;</c->
     <c- nn>skos</c-><c- p>:</c-><c- f>broader</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/682></c-> <c- p>;</c->
-    <c- nn>skos</c-><c- p>:</c-><c- f>exactMatch</c-> <c- g>&lt;https://w3id.org/stirdata/resource/nace/nace-rev2/item/68.20></c-> <c- p>.</c->
+    <c- nn>skos</c-><c- p>:</c-><c- f>exactMatch</c-> <c- g>&lt;http://data.europa.eu/ux2/nace2/6820></c-> <c- p>.</c->
 </pre>
    <h4 class="heading settled" data-level="3.4.2" id="examples-of-the-iris-of-items-from-the-central-nace-code-list"><span class="secno">3.4.2. </span><span class="content">Examples of the IRIs of items from the central NACE code list</span><a class="self-link" href="#examples-of-the-iris-of-items-from-the-central-nace-code-list"></a></h4>
    <ul>
     <li data-md>
-     <p><code>https://w3id.org/stirdata/resource/nace/nace-rev2/item/A</code></p>
+     <p><code>http://data.europa.eu/ux2/nace2/A</code></p>
     <li data-md>
-     <p><code>https://w3id.org/stirdata/resource/nace/nace-rev2/item/10</code></p>
+     <p><code>http://data.europa.eu/ux2/nace2/10</code></p>
     <li data-md>
-     <p><code>https://w3id.org/stirdata/resource/nace/nace-rev2/item/10.1</code></p>
+     <p><code>http://data.europa.eu/ux2/nace2/101</code></p>
     <li data-md>
-     <p><code>https://w3id.org/stirdata/resource/nace/nace-rev2/item/68.20</code></p>
+     <p><code>http://data.europa.eu/ux2/nace2/6820</code></p>
    </ul>
    <h3 class="heading settled" data-level="3.5" id="vocab-NUTS"><span class="secno">3.5. </span><span class="content">NUTS - Nomenclature of territorial units for statistics</span><a class="self-link" href="#vocab-NUTS"></a></h3>
     <a href="https://ec.europa.eu/eurostat/web/nuts/history">NUTS</a> is a code list of territorial units, which can be used to aggregate data over those units.
 Is used in <a href="#AdministrativeUnit">§ 2.6 Administrative Unit</a>.
-In STIRData, we presume the NUTS2021 version being used. 
+In STIRData, we presume the NUTS2021 version being used.
+The code list is published at <a href="https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/nuts">EU Vocabularies</a>. 
    <p>This is an example of a NUTS in the Czech Republic:</p>
-<pre class="language-turtle highlight"><c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
+<pre class="language-turtle highlight"><c- g>&lt;http://data.europa.eu/nuts/code/CZ010></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
   <c- nn>m8g</c-><c- p>:</c-><c- f>level</c-> <c- g>&lt;https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3></c-> <c- p>;</c->
-  <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ010></c-> <c- p>.</c->
+  <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;http://data.europa.eu/nuts/code/CZ010></c-> <c- p>.</c->
 </pre>
    <h3 class="heading settled" data-level="3.6" id="vocab-LAU"><span class="secno">3.6. </span><span class="content">LAUs - Local Administrative Units</span><a class="self-link" href="#vocab-LAU"></a></h3>
     <a href="https://ec.europa.eu/eurostat/web/nuts/local-administrative-units">LAUs</a> are lower-level territorial units, which can be used to aggregate data over those units.
@@ -2983,12 +2983,22 @@ Is used in <a href="#AdministrativeUnit">§ 2.6 Administrative Unit</a>.
   <c- k>FILTER</c-><c- p>(</c-><c- nf>langMatches</c-><c- p>(</c-><c- nf>LANG</c-><c- p>(</c-><c- g>?title</c-><c- p>),</c-> <c- s>"en"</c-><c- p>))</c->
 <c- p>}</c->
 </pre>
-   <h2 class="heading settled" data-level="5" id="data-freshness-indication"><span class="secno">5. </span><span class="content">Data freshness indication</span><a class="self-link" href="#data-freshness-indication"></a></h2>
-    The data from a business registry compliant with this specification should also contain a dataset-wide information about when the last update of the data occured.
-For some use cases of such data, it is crucial to know how fresh they are. 
-   <p>Therefore, an RDF statement with <code>stirdata:lastUpdate</code> predicate should be present in each compliant dataset.
+   <h2 class="heading settled" data-level="5" id="additional-metadata"><span class="secno">5. </span><span class="content">Additional metadata</span><a class="self-link" href="#additional-metadata"></a></h2>
+    The data from a business registry compliant with this specification should also contain additional dataset-wide information that is currently not supported by DCAT-AP and therefore cannot be found in a data catalog.
+Compliant applications therefore search for this infomration in the SPARQL endpoint containing compliant data. 
+   <p>The first such thing is information about when the last update of the data occured.
+For some use cases of such data, it is crucial to know how fresh they are.
+Therefore, the <code>dcterms:modified</code> predicate should be present in each compliant dataset to indicate this.</p>
+   <p>In addition, we support indication of the country covered by the business registry using the <code>dcterms:spatial</code> with values from the <a href="https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country">Country</a> Authority Table from the <a href="https://op.europa.eu/en/web/eu-vocabularies">EU Vocabularies</a>.
+Moreover, the link to the original data source (<code>dcterms:source</code>) and its license/terms of use (<code>dcterms:license</code>) can be used by, e.g., the STIRData platform to better describe the dataset.</p>
+   <p>Finally, if a national NACE extension is used in the dataset, a link to its DCAT-AP representation is required using the <code>stirdata:naceDataset</code> predicate.
 For example:</p>
-<pre class="language-turtle highlight"><c- p>[]</c-> <c- nn>stirdata</c-><c- p>:</c-><c- f>lastUpdate</c-> <c- s>"2022-05-20T08:00:21+02:00"</c-><c- p>^^</c-><c- nn>xsd</c-><c- p>:</c-><c- f>dateTimeStamp</c-> <c- p>.</c->
+<pre class="language-turtle highlight"><c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/stirdata></c-> 
+    <c- nn>dcterms</c-><c- p>:</c-><c- f>modified</c-> <c- s>"2022-05-20T08:00:21+02:00"</c-><c- p>^^</c-><c- nn>xsd</c-><c- p>:</c-><c- f>dateTimeStamp</c-> <c- p>;</c->
+    <c- nn>dcterms</c-><c- p>:</c-><c- f>spatial</c-> <c- g>&lt;http://publications.europa.eu/resource/authority/country/CZE></c-> <c- p>;</c->
+    <c- nn>stirdata</c-><c- p>:</c-><c- f>naceDataset</c-> <c- g>&lt;https://data.gov.cz/zdroj/datové-sady/00216208/03c70bed41ee7397c72b6daeba9257a4></c-> <c- p>;</c->
+    <c- nn>dcterms</c-><c- p>:</c-><c- f>source</c-> <c- g>&lt;https://dataor.justice.cz></c-> <c- p>.</c->
+   <c- g>&lt;https://dataor.justice.cz></c-> <c- nn>dcterms</c-><c- p>:</c-><c- f>license</c-> <c- g>&lt;https://dataor.justice.cz/files/ISVR_OpenData_Podminky_uziti.pdf></c-> <c- p>.</c->
 </pre>
    <h2 class="heading settled" data-level="6" id="examples"><span class="secno">6. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h2>
    <h3 class="heading settled" data-level="6.1" id="czech-company-example"><span class="secno">6.1. </span><span class="content">Czech company example</span><a class="self-link" href="#czech-company-example"></a></h3>
@@ -3021,16 +3031,16 @@ For example:</p>
     <c- nn>locn</c-><c- p>:</c-><c- f>adminUnitL1</c-> <c- s>"Česká republika"</c-><c- o>@</c->cs<c- p>;</c->
     <c- nn>locn</c-><c- p>:</c-><c- f>adminUnitL2</c-> <c- s>"Pardubice"</c-><c- o>@</c->cs<c- p>;</c->
     <c- nn>m8g</c-><c- p>:</c-><c- f>adminUnit</c-> <c- g>&lt;http://publications.europa.eu/resource/authority/country/CZE></c-><c- p>,</c-> 
-        <c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ053></c-><c- p>,</c-> 
+        <c- g>&lt;http://data.europa.eu/nuts/code/CZ053></c-><c- p>,</c-> 
         <c- g>&lt;https://w3id.org/stirdata/resource/lau/item/CZ_555134></c-> <c- p>.</c->
 
 <c- g>&lt;http://publications.europa.eu/resource/authority/country/CZE></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
     <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;http://publications.europa.eu/resource/authority/country/CZE></c-><c- p>;</c->
     <c- nn>m8g</c-><c- p>:</c-><c- f>level</c-> <c- g>&lt;https://w3id.org/stirdata/resource/adminLevel/Country></c-> <c- p>.</c->
 
-<c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ053></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
+<c- g>&lt;http://data.europa.eu/nuts/code/CZ053></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
     <c- nn>m8g</c-><c- p>:</c-><c- f>level</c-> <c- g>&lt;https://w3id.org/stirdata/resource/adminUnitLevel/NUTS-3></c-> <c- p>;</c->
-    <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;https://w3id.org/stirdata/resource/nuts/item/CZ053></c-> <c- p>.</c->
+    <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;http://data.europa.eu/nuts/code/CZ053></c-> <c- p>.</c->
 
 <c- g>&lt;https://w3id.org/stirdata/resource/lau/item/CZ_555134></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
     <c- nn>m8g</c-><c- p>:</c-><c- f>level</c-> <c- g>&lt;https://w3id.org/stirdata/resource/adminUnitLevel/LAU></c-> <c- p>;</c->
