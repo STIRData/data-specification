@@ -861,7 +861,7 @@ For example:
     dcterms:spatial <http://publications.europa.eu/resource/authority/country/CZE> ;
     stirdata:naceDataset <https://data.gov.cz/zdroj/datové-sady/00216208/03c70bed41ee7397c72b6daeba9257a4> ;
     dcterms:source <https://dataor.justice.cz> .
-   <https://dataor.justice.cz> dcterms:license <https://dataor.justice.cz/files/ISVR_OpenData_Podminky_uziti.pdf> .
+<https://dataor.justice.cz> dcterms:license <https://dataor.justice.cz/files/ISVR_OpenData_Podminky_uziti.pdf> .
 ```
 
 Examples
