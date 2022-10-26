@@ -721,7 +721,6 @@ For those national NACE codes to be usable, they need to be linked to the [NACE 
 ### NACE item from a national NACE extension usable in STIRData model
 For a NACE national extension item to be usable, it needs to be described sufficiently.
 Items corresponding to NACE level 1 through 4 need to be linked using `skos:exactMatch` to the central NACE code list.
-Items of lower levels need to be mapped to items of higher levels using `skos:broader`.
 Example:
 
 ```turtle
@@ -732,6 +731,24 @@ Example:
     stirdata:level 4 ;
     skos:broader <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/682> ;
     skos:exactMatch <http://data.europa.eu/ux2/nace2/6820> .
+```
+
+Items of lower levels need to be mapped to items of higher levels using `skos:broader`.
+Example:
+```turtle
+<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/27900> a stirdata:BusinessActivity, skos:Concept ;
+    skos:prefLabel "Výroba ostatních elektrických zařízení"@cs ;
+    skos:notation "27900" ;
+    skos:inScheme <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz> ;
+    stirdata:level 5 ;
+    skos:broader <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/2790> .
+
+<https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/2790> a stirdata:BusinessActivity, skos:Concept ;
+    skos:prefLabel "Výroba ostatních elektrických zařízení"@cs ;
+    skos:notation "2790" ;
+    skos:inScheme <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz> ;
+    stirdata:level 4 ;
+    skos:exactMatch <http://data.europa.eu/ux2/nace2/2790> .
 ```
 
 ### Examples of the IRIs of items from the central NACE code list

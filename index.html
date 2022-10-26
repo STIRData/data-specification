@@ -2872,7 +2872,6 @@ For those national NACE codes to be usable, they need to be linked to the <a hre
    <h4 class="heading settled" data-level="3.4.1" id="nace-item-from-a-national-nace-extension-usable-in-stirdata-model"><span class="secno">3.4.1. </span><span class="content">NACE item from a national NACE extension usable in STIRData model</span><a class="self-link" href="#nace-item-from-a-national-nace-extension-usable-in-stirdata-model"></a></h4>
     For a NACE national extension item to be usable, it needs to be described sufficiently.
 Items corresponding to NACE level 1 through 4 need to be linked using <code>skos:exactMatch</code> to the central NACE code list.
-Items of lower levels need to be mapped to items of higher levels using <code>skos:broader</code>.
 Example: 
 <pre class="language-turtle highlight"><c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/6820></c-> <c- b>a</c-> <c- nn>stirdata</c-><c- p>:</c-><c- f>BusinessActivity</c-><c- p>,</c-> <c- nn>skos</c-><c- p>:</c-><c- f>Concept</c-> <c- p>;</c->
     <c- nn>skos</c-><c- p>:</c-><c- f>prefLabel</c-> <c- s>"Pronájem a správa vlastních nebo pronajatých nemovitostí"</c-><c- o>@</c->cs <c- p>;</c->
@@ -2881,6 +2880,22 @@ Example:
     <c- nn>stirdata</c-><c- p>:</c-><c- f>level</c-> <c- mi>4</c-> <c- p>;</c->
     <c- nn>skos</c-><c- p>:</c-><c- f>broader</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/682></c-> <c- p>;</c->
     <c- nn>skos</c-><c- p>:</c-><c- f>exactMatch</c-> <c- g>&lt;http://data.europa.eu/ux2/nace2/6820></c-> <c- p>.</c->
+</pre>
+   <p>Items of lower levels need to be mapped to items of higher levels using <code>skos:broader</code>.
+Example:</p>
+<pre class="language-turtle highlight"><c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/27900></c-> <c- b>a</c-> <c- nn>stirdata</c-><c- p>:</c-><c- f>BusinessActivity</c-><c- p>,</c-> <c- nn>skos</c-><c- p>:</c-><c- f>Concept</c-> <c- p>;</c->
+    <c- nn>skos</c-><c- p>:</c-><c- f>prefLabel</c-> <c- s>"Výroba ostatních elektrických zařízení"</c-><c- o>@</c->cs <c- p>;</c->
+    <c- nn>skos</c-><c- p>:</c-><c- f>notation</c-> <c- s>"27900"</c-> <c- p>;</c->
+    <c- nn>skos</c-><c- p>:</c-><c- f>inScheme</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz></c-> <c- p>;</c->
+    <c- nn>stirdata</c-><c- p>:</c-><c- f>level</c-> <c- mi>5</c-> <c- p>;</c->
+    <c- nn>skos</c-><c- p>:</c-><c- f>broader</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/2790></c-> <c- p>.</c->
+
+<c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/2790></c-> <c- b>a</c-> <c- nn>stirdata</c-><c- p>:</c-><c- f>BusinessActivity</c-><c- p>,</c-> <c- nn>skos</c-><c- p>:</c-><c- f>Concept</c-> <c- p>;</c->
+    <c- nn>skos</c-><c- p>:</c-><c- f>prefLabel</c-> <c- s>"Výroba ostatních elektrických zařízení"</c-><c- o>@</c->cs <c- p>;</c->
+    <c- nn>skos</c-><c- p>:</c-><c- f>notation</c-> <c- s>"2790"</c-> <c- p>;</c->
+    <c- nn>skos</c-><c- p>:</c-><c- f>inScheme</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz></c-> <c- p>;</c->
+    <c- nn>stirdata</c-><c- p>:</c-><c- f>level</c-> <c- mi>4</c-> <c- p>;</c->
+    <c- nn>skos</c-><c- p>:</c-><c- f>exactMatch</c-> <c- g>&lt;http://data.europa.eu/ux2/nace2/2790></c-> <c- p>.</c->
 </pre>
    <h4 class="heading settled" data-level="3.4.2" id="examples-of-the-iris-of-items-from-the-central-nace-code-list"><span class="secno">3.4.2. </span><span class="content">Examples of the IRIs of items from the central NACE code list</span><a class="self-link" href="#examples-of-the-iris-of-items-from-the-central-nace-code-list"></a></h4>
    <ul>
