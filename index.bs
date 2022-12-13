@@ -139,7 +139,7 @@ A class representing a Company.
 ### LEI code
 
 : Predicate IRIs
-:: `stirdata:leiCode`
+:: `schema:leiCode`
 : Presence
 :: Optional
 : Data type
@@ -148,7 +148,7 @@ A class representing a Company.
 :: 
     ```turtle
 <> a legal:LegalEntity ;
-   stirdata:leiCode "5493000IBP32UQZ0KL24" .
+   schema:leiCode "5493000IBP32UQZ0KL24" .
     ```
 
 ### Link to official registry pages
