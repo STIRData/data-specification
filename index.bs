@@ -358,12 +358,12 @@ If the site is also a registered site, it needs to be linked using both `org:has
 
 ### Registered address
 
-The use of legal:registeredAddress is obligatory for the business address.
+The use of m8g:registeredAddress is obligatory for the business address.
 In case of only one known address is a shortcut for `org:hasRegisteredSite/org:siteAddress` path.
-There should be only one `legal:registeredAddress`.
+There should be only one `m8g:registeredAddress`.
 
 : Predicate IRIs
-:: `legal:registeredAddress`
+:: `m8g:registeredAddress`
 : Presence
 :: Optional
 : Data type
@@ -372,7 +372,7 @@ There should be only one `legal:registeredAddress`.
 :: 
     ```turtle
 <> a legal:LegalEntity ;
-   legal:registeredAddress <#address> .
+   m8g:registeredAddress <#address> .
 
 <#address> a locn:Address .
     ```
@@ -895,7 +895,7 @@ Czech company example
     schema:foundingDate "2004-10-13"^^xsd:date;
     org:hasSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13>;
     org:hasRegisteredSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13>;
-    legal:registeredAddress <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72> ;
+    m8g:registeredAddress <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72> ;
     legal:companyActivity <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/00>,
       <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/27900> .
   

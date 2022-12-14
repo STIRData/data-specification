@@ -1487,7 +1487,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 37b7e7e68, updated Fri May 27 15:08:11 2022 -0700" name="generator">
+  <meta content="Bikeshed version 26e85e599, updated Thu Dec 8 15:29:31 2022 -0800" name="generator">
   <link href="https://stirdata.github.io/data-specification/" rel="canonical">
 <style>/* style-autolinks */
 
@@ -1735,6 +1735,14 @@ a.self-link:hover {
 }
 .heading > a.self-link {
     font-size: 83%;
+}
+.example > a.self-link,
+.note > a.self-link,
+.issue > a.self-link {
+    /* These blocks are overflow:auto, so positioning outside
+       doesn't work. */
+    left: auto;
+    right: 0;
 }
 li > a.self-link {
     left: calc(-1 * (3.5rem - 26px) - 2em);
@@ -2008,7 +2016,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">STIRData business data model</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-12-13">13 December 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-12-14">14 December 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2502,13 +2510,13 @@ Within the project, a proof-of-concept platform is developed, showcasing what ca
 </pre>
    </dl>
    <h4 class="heading settled" data-level="2.1.20" id="registered-address"><span class="secno">2.1.20. </span><span class="content">Registered address</span><a class="self-link" href="#registered-address"></a></h4>
-   <p>The use of legal:registeredAddress is obligatory for the business address.
+   <p>The use of m8g:registeredAddress is obligatory for the business address.
 In case of only one known address is a shortcut for <code>org:hasRegisteredSite/org:siteAddress</code> path.
-There should be only one <code>legal:registeredAddress</code>.</p>
+There should be only one <code>m8g:registeredAddress</code>.</p>
    <dl>
     <dt data-md>Predicate IRIs
     <dd data-md>
-     <p><code>legal:registeredAddress</code></p>
+     <p><code>m8g:registeredAddress</code></p>
     <dt data-md>Presence
     <dd data-md>
      <p>Optional</p>
@@ -2518,7 +2526,7 @@ There should be only one <code>legal:registeredAddress</code>.</p>
     <dt data-md>Example
     <dd data-md>
 <pre class="language-turtle highlight"><c- g>&lt;></c-> <c- b>a</c-> <c- nn>legal</c-><c- p>:</c-><c- f>LegalEntity</c-> <c- p>;</c->
-   <c- nn>legal</c-><c- p>:</c-><c- f>registeredAddress</c-> <c- g>&lt;#address></c-> <c- p>.</c->
+   <c- nn>m8g</c-><c- p>:</c-><c- f>registeredAddress</c-> <c- g>&lt;#address></c-> <c- p>.</c->
 
 <c- g>&lt;#address></c-> <c- b>a</c-> <c- nn>locn</c-><c- p>:</c-><c- f>Address</c-> <c- p>.</c->
 </pre>
@@ -2934,7 +2942,7 @@ Is used in <a href="#AdministrativeUnit">§ 2.6 Administrative Unit</a>.
      <p><code>https://w3id.org/stirdata/resource/lau/2020/item/…</code></p>
    </ul>
    <h2 class="heading settled" data-level="4" id="recommended-metadata-records-in-data-catalogs"><span class="secno">4. </span><span class="content">Recommended metadata records in data catalogs</span><a class="self-link" href="#recommended-metadata-records-in-data-catalogs"></a></h2>
-    Here we state an example of a <a data-link-type="biblio" href="#biblio-dcat-ap">[DCAT-AP]</a> compliant metadata record for the Czech business register dataset compliant with this STIRData specification. 
+    Here we state an example of a <a data-link-type="biblio" href="#biblio-dcat-ap" title="DCAT Application Profile for data portals in Europe. Version 2.0.1">[DCAT-AP]</a> compliant metadata record for the Czech business register dataset compliant with this STIRData specification. 
 <pre class="language-turtle highlight"><c- k>@prefix</c-> <c- nn>application:</c-> <c- g>&lt;http://www.iana.org/assignments/media-types/application/></c-> <c- p>.</c->
 <c- k>@prefix</c-> <c- nn>dcat:</c->        <c- g>&lt;http://www.w3.org/ns/dcat#></c-> <c- p>.</c->
 <c- k>@prefix</c-> <c- nn>dcterms:</c->     <c- g>&lt;http://purl.org/dc/terms/></c-> <c- p>.</c->
@@ -2981,7 +2989,7 @@ Is used in <a href="#AdministrativeUnit">§ 2.6 Administrative Unit</a>.
         <c- nn>dcat</c-><c- p>:</c-><c- f>mediaType</c->    <c- nn>application</c-><c- p>:</c-><c- f>trig</c->  <c- p>.</c->
 </pre>
    The key is to provide the <code>dcterms:conformsTo &lt;https://stirdata.github.io/data-specification/></code> link on the dataset, and to have a distribution of that dataset representing a SPARQL Endpoint data service, indicated by <code>dcterms:conformsTo &lt;https://www.w3.org/TR/sparql11-protocol/></code> on the <code>dcat:DataService</code>. 
-   <p>The SPARQL <a data-link-type="biblio" href="#biblio-sparql11-query">[sparql11-query]</a> query used to find the compliant datasets in the <a href="https://data.europa.eu/sparql">SPARQL endpoint</a> of the Official portal for European data is:</p>
+   <p>The SPARQL <a data-link-type="biblio" href="#biblio-sparql11-query" title="SPARQL 1.1 Query Language">[sparql11-query]</a> query used to find the compliant datasets in the <a href="https://data.europa.eu/sparql">SPARQL endpoint</a> of the Official portal for European data is:</p>
 <pre class="language-sparql highlight"><c- k>PREFIX</c-> <c- nn>dcterms</c-><c- p>:</c-> <c- nl>&lt;http://purl.org/dc/terms/></c->
 <c- k>PREFIX</c-> <c- nn>dcat</c-><c- p>:</c-> <c- nl>&lt;http://www.w3.org/ns/dcat#></c->
 <c- k>PREFIX</c-> <c- nn>rdf</c-><c- p>:</c-> <c- nl>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c->
@@ -3024,7 +3032,7 @@ For example:</p>
     <c- nn>schema</c-><c- p>:</c-><c- f>foundingDate</c-> <c- s>"2004-10-13"</c-><c- p>^^</c-><c- nn>xsd</c-><c- p>:</c-><c- f>date</c-><c- p>;</c->
     <c- nn>org</c-><c- p>:</c-><c- f>hasSite</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13></c-><c- p>;</c->
     <c- nn>org</c-><c- p>:</c-><c- f>hasRegisteredSite</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13></c-><c- p>;</c->
-    <c- nn>legal</c-><c- p>:</c-><c- f>registeredAddress</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72></c-> <c- p>;</c->
+    <c- nn>m8g</c-><c- p>:</c-><c- f>registeredAddress</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72></c-> <c- p>;</c->
     <c- nn>legal</c-><c- p>:</c-><c- f>companyActivity</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/00></c-><c- p>,</c->
       <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/27900></c-> <c- p>.</c->
   
