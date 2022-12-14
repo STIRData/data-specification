@@ -1,0 +1,146 @@
+{
+    "@graph": [
+        {
+            "@id": "stirdata:tradingName",
+            "rdfs:range": {
+                "@id": "rdf:langString"
+            },
+            "rdfs:domain": {
+                "@id": "legal:LegalEntity"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Trading name of the company"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "stirdata:postalAddress",
+            "rdfs:range": {
+                "@id": "locn:Address"
+            },
+            "rdfs:domain": {
+                "@id": "legal:LegalEntity"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Postal address"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "stirdata:taxIdentifier",
+            "rdfs:range": {
+                "@id": "adms:Identifier"
+            },
+            "rdfs:domain": {
+                "@id": "legal:LegalEntity"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Tax identifier"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "stirdata:secondaryActivity",
+            "rdfs:range": {
+                "@id": "skos:Concept"
+            },
+            "rdfs:domain": {
+                "@id": "legal:LegalEntity"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Secondary legal entity activity"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "stirdata:abbreviatedName",
+            "rdfs:range": {
+                "@id": "rdf:langString"
+            },
+            "rdfs:domain": {
+                "@id": "legal:LegalEntity"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Abbreviated name of the company"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "stirdata:auxiliaryActivity",
+            "rdfs:range": {
+                "@id": "skos:Concept"
+            },
+            "rdfs:domain": {
+                "@id": "legal:LegalEntity"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Auxiliary legal entity activity"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "stirdata:streetAddress",
+            "rdfs:range": {
+                "@id": "locn:Address"
+            },
+            "rdfs:domain": {
+                "@id": "legal:LegalEntity"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Street address"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "stirdata:primaryActivity",
+            "rdfs:range": {
+                "@id": "skos:Concept"
+            },
+            "rdfs:domain": {
+                "@id": "legal:LegalEntity"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Primary legal entity activity"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "stirdata:racCode",
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dcterms:Agent"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Registration Authority Code"
+            },
+            "@type": "rdf:Property"
+        }
+    ],
+    "@context": {
+        "schema": "https://schema.org/",
+        "adms": "http://www.w3.org/ns/adms#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "org": "http://www.w3.org/ns/org#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "stirdata": "https://w3id.org/stirdata/vocabulary/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rov": "http://www.w3.org/ns/regorg#",
+        "legal": "http://www.w3.org/ns/legal#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "locn": "http://www.w3.org/ns/locn#",
+        "m8g": "http://data.europa.eu/m8g/"
+    }
+}
