@@ -1,0 +1,70 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:schema="https://schema.org/"
+    xmlns:legal="http://www.w3.org/ns/legal#"
+    xmlns:locn="http://www.w3.org/ns/locn#"
+    xmlns:m8g="http://data.europa.eu/m8g/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:stirdata="https://w3id.org/stirdata/vocabulary/"
+    xmlns:rov="http://www.w3.org/ns/regorg#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:org="http://www.w3.org/ns/org#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#" > 
+  <rdf:Description rdf:about="https://w3id.org/stirdata/vocabulary/primaryActivity">
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/legal#LegalEntity"/>
+    <rdfs:label xml:lang="en">Primary legal entity activity</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/stirdata/vocabulary/racCode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://purl.org/dc/terms/Agent"/>
+    <rdfs:label xml:lang="en">Registration Authority Code</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/stirdata/vocabulary/secondaryActivity">
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/legal#LegalEntity"/>
+    <rdfs:label xml:lang="en">Secondary legal entity activity</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/stirdata/vocabulary/postalAddress">
+    <rdfs:range rdf:resource="http://www.w3.org/ns/locn#Address"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/legal#LegalEntity"/>
+    <rdfs:label xml:lang="en">Postal address</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/stirdata/vocabulary/tradingName">
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/legal#LegalEntity"/>
+    <rdfs:label xml:lang="en">Trading name of the company</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/stirdata/vocabulary/streetAddress">
+    <rdfs:range rdf:resource="http://www.w3.org/ns/locn#Address"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/legal#LegalEntity"/>
+    <rdfs:label xml:lang="en">Street address</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/stirdata/vocabulary/taxIdentifier">
+    <rdfs:range rdf:resource="http://www.w3.org/ns/adms#Identifier"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/legal#LegalEntity"/>
+    <rdfs:label xml:lang="en">Tax identifier</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/stirdata/vocabulary/abbreviatedName">
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/legal#LegalEntity"/>
+    <rdfs:label xml:lang="en">Abbreviated name of the company</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/stirdata/vocabulary/auxiliaryActivity">
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/ns/legal#LegalEntity"/>
+    <rdfs:label xml:lang="en">Auxiliary legal entity activity</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+</rdf:RDF>
