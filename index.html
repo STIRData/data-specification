@@ -2008,7 +2008,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">STIRData business data model</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-12-13">13 December 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-12-21">21 December 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2618,11 +2618,13 @@ There should be only one <code>legal:registeredAddress</code>.</p>
      <p>Optional</p>
     <dt data-md>Data type
     <dd data-md>
-     <p><code>xsd:string</code></p>
+     <p>Agent (<code>dct:Agent</code>)</p>
     <dt data-md>Example
     <dd data-md>
 <pre class="language-turtle highlight"><c- g>&lt;></c-> <c- b>a</c-> <c- nn>adms</c-><c- p>:</c-><c- f>Identifier</c-> <c- p>;</c->
-  <c- nn>dct</c-><c- p>:</c-><c- f>creator</c-> <c- s>"Id issuing agency"</c-> <c- p>.</c->
+  <c- nn>dct</c-><c- p>:</c-><c- f>creator</c-> <c- g>&lt;https://agency.com></c-> <c- p>.</c->
+
+<c- g>&lt;https://agency.com></c-> <c- b>a</c-> <c- nn>dct</c-><c- p>:</c-><c- f>Agent</c-> <c- p>.</c->
 </pre>
    </dl>
    <h3 class="heading settled" data-level="2.3" id="Unit"><span class="secno">2.3. </span><span class="content">Unit</span><a class="self-link" href="#Unit"></a></h3>

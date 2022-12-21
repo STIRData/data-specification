@@ -461,12 +461,14 @@ Identifier {#Identifier}
 : Presence
 :: Optional
 : Data type
-:: `xsd:string`
+:: Agent (`dct:Agent`)
 : Example
 :: 
     ```turtle
 <> a adms:Identifier ;
-  dct:creator "Id issuing agency" .
+  dct:creator <https://agency.com> .
+
+<https://agency.com> a dct:Agent .
     ```
 
 Unit {#Unit}
