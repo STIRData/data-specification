@@ -559,7 +559,8 @@ Administrative Unit {#AdministrativeUnit}
 For an administrative unit linked to an address, a specification of its LAU or NUTS region is mandatory in the following fashion.
 Representation of Country is optional.
 For Countries, items from the [Country authority table](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country) are used.
-For NUTS and LAU codes, since there is no official up to date Linked Data representation, we create our own, which needs to be used.
+For NUTS codes, items from the [Nomenclature of Territorial Units for Statistics](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/nuts) are used.
+For LAU codes, since there is no official up to date Linked Data representation, we create [our own](https://data.europa.eu/data/datasets/https-lkod-mff-cuni-cz-zdroj-datove-sady-stirdata-lau-stirdata), which needs to be used.
 
 : Class IRI
 :: `m8g:AdminUnit`
@@ -777,6 +778,7 @@ LAUs - Local Administrative Units {#vocab-LAU}
 ----------------------------------------------
 \[LAUs](https://ec.europa.eu/eurostat/web/nuts/local-administrative-units) are lower-level territorial units, which can be used to aggregate data over those units.
 Is used in [[#AdministrativeUnit]].
+The temporary source of the LAU IRIs is [our LAU dataset](https://data.europa.eu/data/datasets/https-lkod-mff-cuni-cz-zdroj-datove-sady-stirdata-lau-stirdata).
 
 This is an example of a LAU in the Czech Republic, with no particular version specified, therefore, we assume the newest one available:
 ```turtle

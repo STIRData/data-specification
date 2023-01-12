@@ -2008,7 +2008,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">STIRData business data model</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-12-21">21 December 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2023-01-12">12 January 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2718,7 +2718,8 @@ Can have all the properties of a <a href="#Company">§ 2.1 Company</a>.
    <p>For an administrative unit linked to an address, a specification of its LAU or NUTS region is mandatory in the following fashion.
 Representation of Country is optional.
 For Countries, items from the <a href="https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/country">Country authority table</a> are used.
-For NUTS and LAU codes, since there is no official up to date Linked Data representation, we create our own, which needs to be used.</p>
+For NUTS codes, items from the <a href="https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/nuts">Nomenclature of Territorial Units for Statistics</a> are used.
+For LAU codes, since there is no official up to date Linked Data representation, we create <a href="https://data.europa.eu/data/datasets/https-lkod-mff-cuni-cz-zdroj-datove-sady-stirdata-lau-stirdata">our own</a>, which needs to be used.</p>
    <dl>
     <dt data-md>Class IRI
     <dd data-md>
@@ -2922,7 +2923,8 @@ The code list is published at <a href="https://op.europa.eu/en/web/eu-vocabulari
 </pre>
    <h3 class="heading settled" data-level="3.6" id="vocab-LAU"><span class="secno">3.6. </span><span class="content">LAUs - Local Administrative Units</span><a class="self-link" href="#vocab-LAU"></a></h3>
     <a href="https://ec.europa.eu/eurostat/web/nuts/local-administrative-units">LAUs</a> are lower-level territorial units, which can be used to aggregate data over those units.
-Is used in <a href="#AdministrativeUnit">§ 2.6 Administrative Unit</a>. 
+Is used in <a href="#AdministrativeUnit">§ 2.6 Administrative Unit</a>.
+The temporary source of the LAU IRIs is <a href="https://data.europa.eu/data/datasets/https-lkod-mff-cuni-cz-zdroj-datove-sady-stirdata-lau-stirdata">our LAU dataset</a>. 
    <p>This is an example of a LAU in the Czech Republic, with no particular version specified, therefore, we assume the newest one available:</p>
 <pre class="language-turtle highlight"><c- g>&lt;https://w3id.org/stirdata/resource/lau/item/CZ_569810></c-> <c- b>a</c-> <c- nn>m8g</c-><c- p>:</c-><c- f>AdminUnit</c-><c- p>;</c->
   <c- nn>m8g</c-><c- p>:</c-><c- f>code</c-> <c- g>&lt;https://w3id.org/stirdata/resource/lau/item/CZ_569810></c-> <c- p>;</c->
