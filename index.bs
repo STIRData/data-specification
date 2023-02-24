@@ -24,6 +24,8 @@ Data model
 ==========
 The data model is directly based on the [Core Vocabularies](https://joinup.ec.europa.eu/collection/semantic-interoperability-community-semic/core-vocabularies).
 
+<img alt="STIRData data model" src="stirdata.svg" width="100%" no-autosize >
+
 Used prefixes:
 ```turtle
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
