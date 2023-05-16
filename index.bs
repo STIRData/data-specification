@@ -52,7 +52,7 @@ A class representing a Company.
 : Presence
 :: Mandatory
 : Description
-:: According to the [definition in Core Business Vocabulary 2.00](https://semiceu.github.io/Core-Business-Vocabulary/releases/2.00/#Legal%20Entity), a self-empoyed person, company, or organization that has legal rights and obligations.
+:: According to the [definition in Core Business Vocabulary 2.1.0](https://semiceu.github.io/Core-Business-Vocabulary/releases/2.1.0/#Legal%20Entity), a self-empoyed person, company, or organization that has legal rights and obligations.
 : Example
 ::  
     ```turtle
@@ -168,10 +168,10 @@ A class representing a Company.
    schema:sameAs <https://ariregister.rik.ee/est/company/10060552> .
     ```
 
-### Founding date
+### Registration date
 
 : Predicate IRI
-:: `schema:foundingDate`
+:: `m8g:registrationDate`
 : Presence
 :: Optional
 : Data type
@@ -180,7 +180,7 @@ A class representing a Company.
 :: 
     ```turtle
 <> a legal:LegalEntity ;
-schema:foundingDate "2014-10-14"^^xsd:date .
+m8g:registrationDate "2014-10-14"^^xsd:date .
     ```
 
 ### Dissolution date
@@ -518,7 +518,7 @@ Site {#Site}
 Address {#Address}
 ------------------
 
-[Address](https://semiceu.github.io/Core-Location-Vocabulary/releases/2.00/#Address) from the Core Location Vocabulary.
+[Address](https://semiceu.github.io/Core-Location-Vocabulary/releases/2.0.2/#Address) from the Core Location Vocabulary.
 
 : Class IRI
 :: `locn:Address`
@@ -898,7 +898,7 @@ Czech company example
     a legal:LegalEntity;
     legal:legalName "TechnoPark Management a.s. v likvidaci"@cs;
     legal:legalIdentifier <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace>;
-    schema:foundingDate "2004-10-13"^^xsd:date;
+    m8g:registrationDate "2004-10-13"^^xsd:date;
     org:hasSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13>;
     org:hasRegisteredSite <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13>;
     m8g:registeredAddress <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72> ;

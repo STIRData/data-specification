@@ -2008,7 +2008,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">STIRData business data model</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2023-02-24">24 February 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2023-05-16">16 May 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2045,7 +2045,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#tax-identifier"><span class="secno">2.1.5</span> <span class="content">Tax identifier</span></a>
         <li><a href="#lei-code"><span class="secno">2.1.6</span> <span class="content">LEI code</span></a>
         <li><a href="#link-to-official-registry-pages"><span class="secno">2.1.7</span> <span class="content">Link to official registry pages</span></a>
-        <li><a href="#founding-date"><span class="secno">2.1.8</span> <span class="content">Founding date</span></a>
+        <li><a href="#registration-date"><span class="secno">2.1.8</span> <span class="content">Registration date</span></a>
         <li><a href="#dissolution-date"><span class="secno">2.1.9</span> <span class="content">Dissolution date</span></a>
         <li><a href="#legal-entity-activity"><span class="secno">2.1.10</span> <span class="content">Legal entity activity</span></a>
         <li><a href="#primary-legal-entity-activity"><span class="secno">2.1.11</span> <span class="content">Primary legal entity activity</span></a>
@@ -2155,7 +2155,7 @@ Within the project, a proof-of-concept platform is developed, showcasing what ca
      <p>Mandatory</p>
     <dt data-md>Description
     <dd data-md>
-     <p>According to the <a href="https://semiceu.github.io/Core-Business-Vocabulary/releases/2.00/#Legal%20Entity">definition in Core Business Vocabulary 2.00</a>, a self-empoyed person, company, or organization that has legal rights and obligations.</p>
+     <p>According to the <a href="https://semiceu.github.io/Core-Business-Vocabulary/releases/2.1.0/#Legal%20Entity">definition in Core Business Vocabulary 2.1.0</a>, a self-empoyed person, company, or organization that has legal rights and obligations.</p>
     <dt data-md>Example
     <dd data-md>
 <pre class="language-turtle highlight"><c- g>&lt;></c-> <c- b>a</c-> <c- nn>legal</c-><c- p>:</c-><c- f>LegalEntity</c-> <c- p>.</c->
@@ -2284,11 +2284,11 @@ Within the project, a proof-of-concept platform is developed, showcasing what ca
    <c- nn>schema</c-><c- p>:</c-><c- f>sameAs</c-> <c- g>&lt;https://ariregister.rik.ee/est/company/10060552></c-> <c- p>.</c->
 </pre>
    </dl>
-   <h4 class="heading settled" data-level="2.1.8" id="founding-date"><span class="secno">2.1.8. </span><span class="content">Founding date</span><a class="self-link" href="#founding-date"></a></h4>
+   <h4 class="heading settled" data-level="2.1.8" id="registration-date"><span class="secno">2.1.8. </span><span class="content">Registration date</span><a class="self-link" href="#registration-date"></a></h4>
    <dl>
     <dt data-md>Predicate IRI
     <dd data-md>
-     <p><code>schema:foundingDate</code></p>
+     <p><code>m8g:registrationDate</code></p>
     <dt data-md>Presence
     <dd data-md>
      <p>Optional</p>
@@ -2298,7 +2298,7 @@ Within the project, a proof-of-concept platform is developed, showcasing what ca
     <dt data-md>Example
     <dd data-md>
 <pre class="language-turtle highlight"><c- g>&lt;></c-> <c- b>a</c-> <c- nn>legal</c-><c- p>:</c-><c- f>LegalEntity</c-> <c- p>;</c->
-<c- nn>schema</c-><c- p>:</c-><c- f>foundingDate</c-> <c- s>"2014-10-14"</c-><c- p>^^</c-><c- nn>xsd</c-><c- p>:</c-><c- f>date</c-> <c- p>.</c->
+<c- nn>m8g</c-><c- p>:</c-><c- f>registrationDate</c-> <c- s>"2014-10-14"</c-><c- p>^^</c-><c- nn>xsd</c-><c- p>:</c-><c- f>date</c-> <c- p>.</c->
 </pre>
    </dl>
    <h4 class="heading settled" data-level="2.1.9" id="dissolution-date"><span class="secno">2.1.9. </span><span class="content">Dissolution date</span><a class="self-link" href="#dissolution-date"></a></h4>
@@ -2674,7 +2674,7 @@ Can have all the properties of a <a href="#Company">§ 2.1 Company</a>.
 </pre>
    </dl>
    <h3 class="heading settled" data-level="2.5" id="Address"><span class="secno">2.5. </span><span class="content">Address</span><a class="self-link" href="#Address"></a></h3>
-   <p><a href="https://semiceu.github.io/Core-Location-Vocabulary/releases/2.00/#Address">Address</a> from the Core Location Vocabulary.</p>
+   <p><a href="https://semiceu.github.io/Core-Location-Vocabulary/releases/2.0.2/#Address">Address</a> from the Core Location Vocabulary.</p>
    <dl>
     <dt data-md>Class IRI
     <dd data-md>
@@ -3026,7 +3026,7 @@ For example:</p>
     <c- b>a</c-> <c- nn>legal</c-><c- p>:</c-><c- f>LegalEntity</c-><c- p>;</c->
     <c- nn>legal</c-><c- p>:</c-><c- f>legalName</c-> <c- s>"TechnoPark Management a.s. v likvidaci"</c-><c- o>@</c->cs<c- p>;</c->
     <c- nn>legal</c-><c- p>:</c-><c- f>legalIdentifier</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/registrace></c-><c- p>;</c->
-    <c- nn>schema</c-><c- p>:</c-><c- f>foundingDate</c-> <c- s>"2004-10-13"</c-><c- p>^^</c-><c- nn>xsd</c-><c- p>:</c-><c- f>date</c-><c- p>;</c->
+    <c- nn>m8g</c-><c- p>:</c-><c- f>registrationDate</c-> <c- s>"2004-10-13"</c-><c- p>^^</c-><c- nn>xsd</c-><c- p>:</c-><c- f>date</c-><c- p>;</c->
     <c- nn>org</c-><c- p>:</c-><c- f>hasSite</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13></c-><c- p>;</c->
     <c- nn>org</c-><c- p>:</c-><c- f>hasRegisteredSite</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/registrované-osoby/27463095/SIDLO/2/2015-11-13></c-><c- p>;</c->
     <c- nn>m8g</c-><c- p>:</c-><c- f>registeredAddress</c-> <c- g>&lt;https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/adresa/ed527c038368896a0e11ec8e0d940d72></c-> <c- p>;</c->
