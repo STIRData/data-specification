@@ -11,7 +11,8 @@ Group: STIRData
 URL: https://stirdata.github.io/data-specification/
 Editor: Jakub Klímek, Charles University https://www.mff.cuni.cz, jakub.klimek@matfyz.cuni.cz, https://jakub.klímek.com/
 Editor: Alexandros Chortaras, National Technical University of Athens https://www.ntua.gr/, achort@cs.ntua.gr, https://www.ece.ntua.gr/en/staff/217
-Abstract: This specification describes the data model currently used in the STIRData project. It is based on the EU Core Vocabularies.
+Abstract: This specification describes the data model currently used in the STIRData project. It is based on the EU Core Vocabularies. STIRData is co-financed by the Connecting Europe Facility Programme of the European Union, under GA n. INEA/CEF/ICT/A2019/2063078.
+
 </pre>
 
 Introduction {#intro}
@@ -946,3 +947,8 @@ Czech company example
     stirdata:level 5;
     skos:broader <https://obchodní-rejstřík.stirdata.opendata.cz/zdroj/číselníky/nace-cz/položky/2790> .
 ```
+
+Acknowledgment
+==============
+<img width="100%" src="https://wayback.archive-it.org/12090/20221202205740im_/https://ec.europa.eu/inea/sites/default/files/en_square_cef_logo.png" alt="EU emblem">
+STIRData is co-financed by the Connecting Europe Facility Programme of the European Union, under GA n. INEA/CEF/ICT/A2019/2063078.
